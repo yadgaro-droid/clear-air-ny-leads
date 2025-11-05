@@ -4,7 +4,7 @@ import { Award, Users, ThumbsUp, TrendingUp } from "lucide-react";
 const About = () => {
   const stats = [
     { icon: Users, value: "10,000+", label: "Happy Customers" },
-    { icon: Award, value: "15+", label: "Years Experience" },
+    { icon: Award, value: "7+", label: "Years Experience" },
     { icon: ThumbsUp, value: "99%", label: "Satisfaction Rate" },
     { icon: TrendingUp, value: "24/7", label: "Support Available" }
   ];
@@ -37,7 +37,7 @@ const About = () => {
             <h1 className="text-foreground mb-6">About NY Duct Cleaning Pros</h1>
             <p className="text-xl text-muted-foreground">
               New York's trusted air duct cleaning experts, dedicated to improving indoor air quality 
-              and creating healthier living environments for over 15 years.
+              and creating healthier living environments for over 7 years.
             </p>
           </div>
         </div>
@@ -68,7 +68,7 @@ const About = () => {
               <h2 className="text-foreground">Our Story</h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  Founded in 2010, NY Duct Cleaning Pros began with a simple mission: to help New York 
+                  Founded in 2018, NY Duct Cleaning Pros began with a simple mission: to help New York 
                   families breathe easier through professional air duct cleaning services.
                 </p>
                 <p>

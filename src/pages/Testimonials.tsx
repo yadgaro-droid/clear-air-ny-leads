@@ -84,7 +84,7 @@ const Testimonials = () => {
                 <Star key={i} className="h-8 w-8 text-yellow-400 fill-yellow-400" />
               ))}
             </div>
-            <p className="text-2xl font-semibold mb-2">4.9 out of 5 stars</p>
+            <p className="text-2xl font-semibold mb-2">4.7 out of 5 stars</p>
             <p className="text-muted-foreground">Based on 200+ verified reviews</p>
           </div>
         </div>
@@ -135,11 +135,11 @@ const Testimonials = () => {
                 <div className="text-muted-foreground">Satisfaction Rate</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-primary mb-2">4.9/5</div>
+                <div className="text-4xl font-bold text-primary mb-2">4.7/5</div>
                 <div className="text-muted-foreground">Average Rating</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-primary mb-2">15+</div>
+                <div className="text-4xl font-bold text-primary mb-2">7+</div>
                 <div className="text-muted-foreground">Years Experience</div>
               </div>
             </div>

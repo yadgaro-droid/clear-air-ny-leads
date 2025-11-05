@@ -57,7 +57,7 @@ const Home = () => {
                   <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
                   <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
                   <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
-                  <span className="ml-2 text-sm font-medium">4.9/5 (200+ reviews)</span>
+                  <span className="ml-2 text-sm font-medium">4.7/5 (200+ reviews)</span>
                 </div>
               </div>
             </div>
@@ -71,7 +71,7 @@ const Home = () => {
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-soft p-6 max-w-xs">
-                <p className="font-semibold text-2xl text-primary">15+ Years</p>
+                <p className="font-semibold text-2xl text-primary">7+ Years</p>
                 <p className="text-muted-foreground">Serving New York</p>
               </div>
             </div>
@@ -85,7 +85,7 @@ const Home = () => {
           <div className="text-center mb-12">
             <h2 className="text-foreground mb-4">Why Choose Us</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Experience the difference with New York's most trusted duct cleaning service
+              New York's trusted duct cleaning experts
             </p>
           </div>
 
