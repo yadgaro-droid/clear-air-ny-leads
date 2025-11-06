@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Twitter, MapPin, Phone, Mail } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,13 +12,11 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                <span className="text-white font-bold text-xl">NY</span>
-              </div>
-              <span className="font-bold text-lg">NY Duct Cleaning</span>
+              <img src={logo} alt="CleanVent Logo" className="h-10 w-10" />
+              <span className="font-bold text-lg">CleanVent</span>
             </div>
             <p className="text-sm text-muted-foreground mb-4">
-              Professional air duct cleaning services in New York. Improving air quality and HVAC efficiency since 2010.
+              Professional air duct cleaning services in New York. Improving air quality and HVAC efficiency since 2018.
             </p>
             <div className="flex space-x-3">
               <a href="#" className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors" aria-label="Facebook">
@@ -80,7 +79,7 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-muted-foreground">
-              © {currentYear} NY Duct Cleaning Pros. All rights reserved.
+              © {currentYear} CleanVent. All rights reserved.
             </p>
             <div className="flex space-x-6">
               <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a>

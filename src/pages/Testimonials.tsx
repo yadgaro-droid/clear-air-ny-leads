@@ -42,7 +42,7 @@ const Testimonials = () => {
       name: "James Wilson",
       location: "Manhattan, NY",
       rating: 5,
-      text: "I manage several commercial properties and have used NY Duct Cleaning Pros for all of them. Consistent quality, reliable service, and great communication. They're my go-to for all HVAC cleaning needs.",
+      text: "I manage several commercial properties and have used CleanVent for all of them. Consistent quality, reliable service, and great communication. They're my go-to for all HVAC cleaning needs.",
       service: "Commercial Services"
     },
     {

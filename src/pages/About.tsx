@@ -34,7 +34,7 @@ const About = () => {
       <section className="bg-gradient-to-br from-primary/5 via-background to-secondary/5 py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-foreground mb-6">About NY Duct Cleaning Pros</h1>
+            <h1 className="text-foreground mb-6">About CleanVent</h1>
             <p className="text-xl text-muted-foreground">
               New York's trusted air duct cleaning experts, dedicated to improving indoor air quality 
               and creating healthier living environments for over 7 years.
@@ -68,7 +68,7 @@ const About = () => {
               <h2 className="text-foreground">Our Story</h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  Founded in 2018, NY Duct Cleaning Pros began with a simple mission: to help New York 
+                  Founded in 2018, CleanVent began with a simple mission: to help New York 
                   families breathe easier through professional air duct cleaning services.
                 </p>
                 <p>
