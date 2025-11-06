@@ -182,8 +182,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg mb-1">Phone</h3>
-                      <a href="tel:+15555382532" className="text-primary hover:underline">
-                        (555) 538-2532
+                      <a href="tel:+16465963677" className="text-primary hover:underline">
+                        (646) 596-3677
                       </a>
                       <p className="text-sm text-muted-foreground mt-1">
                         Call us for immediate assistance
@@ -248,7 +248,7 @@ const Contact = () => {
                   suspected mold, severe air quality issues, or HVAC failures.
                 </p>
                 <Button variant="outline" asChild>
-                  <a href="tel:+15555382532">Call Emergency Line</a>
+                  <a href="tel:+16465963677">Call Emergency Line</a>
                 </Button>
               </div>
             </div>

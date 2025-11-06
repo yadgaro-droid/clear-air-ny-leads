@@ -43,7 +43,7 @@ const Home = () => {
                   <Link to="/contact">Get Free Estimate</Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild className="text-lg h-14 px-8">
-                  <a href="tel:+15555382532" className="flex items-center">
+                  <a href="tel:+16465963677" className="flex items-center">
                     <Phone className="mr-2 h-5 w-5" />
                     Call Now
                   </a>

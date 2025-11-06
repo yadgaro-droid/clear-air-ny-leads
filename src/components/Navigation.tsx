@@ -49,9 +49,9 @@ const Navigation = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <a href="tel:+15555382532" className="flex items-center text-sm font-medium text-foreground hover:text-primary transition-colors">
+            <a href="tel:+16465963677" className="flex items-center text-sm font-medium text-foreground hover:text-primary transition-colors">
               <Phone className="h-4 w-4 mr-2" />
-              (555) 538-2532
+              (646) 596-3677
             </a>
             <Button asChild>
               <Link to="/contact">Get Free Estimate</Link>
@@ -85,9 +85,9 @@ const Navigation = () => {
                 </Link>
               ))}
               <div className="px-4 pt-4 border-t border-border space-y-3">
-                <a href="tel:+15555382532" className="flex items-center text-sm font-medium text-foreground hover:text-primary transition-colors">
+                <a href="tel:+16465963677" className="flex items-center text-sm font-medium text-foreground hover:text-primary transition-colors">
                   <Phone className="h-4 w-4 mr-2" />
-                  (555) 538-2532
+                  (646) 596-3677
                 </a>
                 <Button asChild className="w-full">
                   <Link to="/contact" onClick={() => setIsOpen(false)}>Get Free Estimate</Link>

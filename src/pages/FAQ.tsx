@@ -123,7 +123,7 @@ const FAQ = () => {
                 <Link to="/contact">Contact Us</Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <a href="tel:+15555382532">Call (555) 538-2532</a>
+                <a href="tel:+16465963677">Call (646) 596-3677</a>
               </Button>
             </div>
           </div>
