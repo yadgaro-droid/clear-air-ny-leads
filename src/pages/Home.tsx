@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle, Wind, Shield, Clock, Star, Phone } from "lucide-react";
+import { CheckCircle, Wind, Shield, Clock, Star, Phone, ShieldCheck, Award, BadgeCheck } from "lucide-react";
 import heroImage from "@/assets/hero-duct-cleaning.jpg";
 
 const Home = () => {
@@ -51,7 +51,7 @@ const Home = () => {
                 </Button>
               </div>
 
-              <div className="flex items-center space-x-6 pt-4">
+              <div className="flex flex-col space-y-4 pt-4">
                 <div className="flex items-center">
                   <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
                   <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
@@ -59,6 +59,21 @@ const Home = () => {
                   <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
                   <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
                   <span className="ml-2 text-sm font-medium">4.7/5 (200+ reviews)</span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="flex items-center space-x-2 bg-primary/10 rounded-lg px-4 py-3">
+                    <ShieldCheck className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span className="text-sm font-semibold">Licensed & Insured</span>
+                  </div>
+                  <div className="flex items-center space-x-2 bg-primary/10 rounded-lg px-4 py-3">
+                    <Award className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span className="text-sm font-semibold">7+ Years Experience</span>
+                  </div>
+                  <div className="flex items-center space-x-2 bg-primary/10 rounded-lg px-4 py-3">
+                    <BadgeCheck className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span className="text-sm font-semibold">100% Satisfaction</span>
+                  </div>
                 </div>
               </div>
             </div>
