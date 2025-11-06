@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Wind, Flame, Droplets, TestTube, Sparkles, Building } from "lucide-react";
+import { Wind, Flame, Droplets, TestTube, Sparkles, Building, Brush } from "lucide-react";
 import servicesHero from "@/assets/services-hero.jpg";
 
 const Services = () => {
@@ -26,6 +26,17 @@ const Services = () => {
         "Improved dryer performance",
         "Reduced energy consumption",
         "Extended appliance lifespan"
+      ]
+    },
+    {
+      icon: Brush,
+      title: "Chimney Cleaning & Inspection",
+      description: "Keep your fireplace safe and efficient with professional chimney cleaning and inspection services.",
+      features: [
+        "Creosote and soot removal",
+        "Chimney safety inspections",
+        "Fire hazard prevention",
+        "Improved heating efficiency"
       ]
     },
     {
@@ -82,7 +93,7 @@ const Services = () => {
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h1 className="text-foreground mb-4">Our Professional Services</h1>
             <p className="text-xl text-muted-foreground">
-              Comprehensive air duct and HVAC cleaning solutions for residential and commercial properties in New York
+              Comprehensive air duct, dryer vent, and chimney cleaning solutions for residential and commercial properties in New York
             </p>
           </div>
           

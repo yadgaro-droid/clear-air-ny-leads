@@ -15,6 +15,7 @@ const Home = () => {
   const services = [
     "Air Duct Cleaning",
     "Dryer Vent Cleaning",
+    "Chimney Cleaning & Inspection",
     "HVAC System Maintenance",
     "Air Quality Testing",
     "Sanitization & Deodorizing",
@@ -30,10 +31,10 @@ const Home = () => {
             <div className="space-y-8">
               <div className="space-y-4">
                 <h1 className="text-foreground">
-                  Professional Duct Cleaning Services in New York
+                  Professional Air Duct, Dryer Vent & Chimney Cleaning in New York
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-xl">
-                  Breathe cleaner, healthier air with our expert air duct cleaning services. 
+                  Breathe cleaner, healthier air with our expert cleaning services for air ducts, dryer vents, and chimneys. 
                   Certified technicians, advanced equipment, and 100% satisfaction guaranteed.
                 </p>
               </div>

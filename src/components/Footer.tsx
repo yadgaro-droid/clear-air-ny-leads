@@ -50,6 +50,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="text-sm text-muted-foreground">Air Duct Cleaning</li>
               <li className="text-sm text-muted-foreground">Dryer Vent Cleaning</li>
+              <li className="text-sm text-muted-foreground">Chimney Cleaning</li>
               <li className="text-sm text-muted-foreground">HVAC Maintenance</li>
               <li className="text-sm text-muted-foreground">Air Quality Testing</li>
               <li className="text-sm text-muted-foreground">Sanitization Services</li>
