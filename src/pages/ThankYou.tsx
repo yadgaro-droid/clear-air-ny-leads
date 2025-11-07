@@ -7,13 +7,27 @@ const ThankYou = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Track page view in GTM
+    // Push virtual pageview to GTM for SPA routing
     (window as any).dataLayer = (window as any).dataLayer || [];
     (window as any).dataLayer.push({
-      event: 'page_view',
-      page_path: '/thank-you',
-      page_title: 'Thank You - CleanVent NYC'
+      event: 'virtualPageview',
+      page: '/thank-you',
+      title: 'Thank You - CleanVent NYC'
     });
+
+    // Also push standard page_view event
+    (window as any).dataLayer.push({
+      event: 'page_view',
+      page_path: '/thank-you'
+    });
+
+    // Update browser history for GTM to detect URL change
+    if (typeof (window as any).gtag !== 'undefined') {
+      (window as any).gtag('event', 'page_view', {
+        page_path: '/thank-you',
+        page_title: 'Thank You - CleanVent NYC'
+      });
+    }
   }, []);
 
   return (
