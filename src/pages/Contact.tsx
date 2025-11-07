@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -8,6 +9,7 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 const Contact = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -53,6 +55,7 @@ const Contact = () => {
       const data = await response.json();
 
       if (data.success) {
+        // Track form submission in GTM
         (window as any).dataLayer = (window as any).dataLayer || [];
         (window as any).dataLayer.push({
           event: 'form_submit',
@@ -60,18 +63,8 @@ const Contact = () => {
           service_type: formData.service
         });
 
-        toast({
-          title: "Request Received!",
-          description: "Thank you! We'll contact you within 2 hours with your free estimate.",
-        });
-
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          service: "",
-          message: "",
-        });
+        // Redirect to thank you page
+        navigate("/thank-you");
       } else {
         throw new Error("Form submission failed");
       }
@@ -82,6 +75,7 @@ const Contact = () => {
         variant: "destructive",
       });
 
+      // Track error in GTM
       (window as any).dataLayer = (window as any).dataLayer || [];
       (window as any).dataLayer.push({
         event: 'form_error',
