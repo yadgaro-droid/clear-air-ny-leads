@@ -49,7 +49,7 @@ const Contact = () => {
           message: formData.message || "No additional message",
           from_name: "CleanVent NYC Website",
           subject: `New Lead: ${formData.name} - ${formData.service || "General Inquiry"}`,
-          cc: "Shiraleonardshailin@gmail.com,Oriannyc@gmail.com,yadgaro@gmail.com",
+          to: "yadgaro@gmail.com,Shiraleonardshailin@gmail.com,Oriannyc@gmail.com",
         }),
       });
 
