@@ -5,7 +5,7 @@ const About = () => {
   const stats = [
     { icon: Users, value: "10,000+", label: "Happy Customers" },
     { icon: Award, value: "7+", label: "Years Experience" },
-    { icon: ThumbsUp, value: "99%", label: "Satisfaction Rate" },
+    { icon: ThumbsUp, value: "94%", label: "Satisfaction Rate" },
     { icon: TrendingUp, value: "24/7", label: "Support Available" }
   ];
 

@@ -131,7 +131,7 @@ const Testimonials = () => {
                 <div className="text-muted-foreground">Happy Customers</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-primary mb-2">99%</div>
+                <div className="text-4xl font-bold text-primary mb-2">94%</div>
                 <div className="text-muted-foreground">Satisfaction Rate</div>
               </div>
               <div className="text-center">
