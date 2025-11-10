@@ -56,17 +56,23 @@ const Contact = () => {
       const data = await response.json();
 
       if (data.success) {
+        // Log successful submission with recipient info
+        console.log('Form submitted successfully to:', 'yadgaro@gmail.com, Shiraleonardshailin@gmail.com, Oriannyc@gmail.com');
+        console.log('Web3Forms Response:', data);
+
         // Track form submission in GTM
         (window as any).dataLayer = (window as any).dataLayer || [];
         (window as any).dataLayer.push({
           event: 'form_submit',
           form_name: 'contact_form',
-          service_type: formData.service
+          service_type: formData.service,
+          recipients: 'yadgaro@gmail.com,Shiraleonardshailin@gmail.com,Oriannyc@gmail.com'
         });
 
         // Redirect to thank you page
         navigate("/thank-you");
       } else {
+        console.error('Form submission failed:', data);
         throw new Error("Form submission failed");
       }
     } catch (error) {
