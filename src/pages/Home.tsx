@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Wind, Shield, Clock, Star, Phone, ShieldCheck, Award, BadgeCheck } from "lucide-react";
 import heroImage from "@/assets/hero-duct-cleaning.jpg";
+import logo from "@/assets/logo.png";
 
 const Home = () => {
   const benefits = [
@@ -23,9 +23,26 @@ const Home = () => {
   ];
 
   return (
-    <main>
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary/5 via-background to-secondary/5 overflow-hidden">
+    <>
+      {/* Sticky Header - Mobile Only */}
+      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border md:hidden">
+        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <img src={logo} alt="CleanVent NYC" className="h-8 w-8" />
+            <span className="font-bold text-base">CleanVent NYC</span>
+          </div>
+          <Button size="sm" asChild className="h-10">
+            <a href="tel:+16465963677" className="flex items-center">
+              <Phone className="h-4 w-4 mr-2" />
+              Call Now
+            </a>
+          </Button>
+        </div>
+      </header>
+
+      <main>
+        {/* Hero Section */}
+        <section className="relative bg-gradient-to-br from-primary/5 via-background to-secondary/5 overflow-hidden">
         <div className="container mx-auto px-4 py-20 lg:py-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
@@ -40,7 +57,7 @@ const Home = () => {
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild className="text-lg h-14 px-8">
-                  <Link to="/contact">Get Free Estimate</Link>
+                  <a href="#contact-form">Get Free Estimate</a>
                 </Button>
                 <Button size="lg" variant="outline" asChild className="text-lg h-14 px-8">
                   <a href="tel:+16465963677" className="flex items-center">
@@ -168,7 +185,7 @@ const Home = () => {
                 Professional duct cleaning removes all accumulated contaminants and improves your indoor air quality immediately.
               </p>
               <Button size="lg" asChild>
-                <Link to="/contact">Schedule Free Inspection</Link>
+                <a href="#contact-form">Schedule Free Inspection</a>
               </Button>
             </div>
           </div>
@@ -195,7 +212,7 @@ const Home = () => {
               </div>
 
               <Button size="lg" asChild>
-                <Link to="/services">View All Services</Link>
+                <a href="#contact-form">Get Free Estimate</a>
               </Button>
             </div>
 
@@ -335,19 +352,133 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary to-primary-hover text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-white mb-4">Ready for Cleaner, Healthier Air?</h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Get your free estimate today and experience the difference professional duct cleaning makes
-          </p>
-          <Button size="lg" variant="secondary" asChild className="text-lg h-14 px-8">
-            <Link to="/contact">Get Free Estimate Now</Link>
-          </Button>
+      {/* Contact Form Section */}
+      <section id="contact-form" className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-foreground mb-4">Get Your Free Estimate</h2>
+              <p className="text-xl text-muted-foreground">
+                Fill out the form below and we'll respond within 2 hours. Or call us now at{" "}
+                <a href="tel:+16465963677" className="text-primary font-semibold hover:underline">
+                  (646) 596-3677
+                </a>
+              </p>
+            </div>
+
+            <Card className="border-2">
+              <CardContent className="p-8">
+                <form className="space-y-6" action="https://api.web3forms.com/submit" method="POST">
+                  <input type="hidden" name="access_key" value="d382f73a-e963-48f4-8404-d3d73fffc53a" />
+                  <input type="hidden" name="from_name" value="CleanVent NYC Website" />
+                  <input type="hidden" name="to" value="yadgaro@gmail.com,Shiraleonardshailin@gmail.com,Oriannyc@gmail.com" />
+                  <input type="hidden" name="redirect" value="https://cleanventnyc.com/thank-you" />
+
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium mb-2">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      className="w-full px-4 py-3 border border-input rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-ring"
+                      placeholder="John Doe"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      className="w-full px-4 py-3 border border-input rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-ring"
+                      placeholder="john@example.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="service" className="block text-sm font-medium mb-2">
+                      Service Needed *
+                    </label>
+                    <select
+                      id="service"
+                      name="service"
+                      required
+                      className="w-full px-4 py-3 border border-input rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-ring"
+                    >
+                      <option value="">Select a service</option>
+                      <option value="air-duct">Air Duct Cleaning</option>
+                      <option value="chimney">Chimney Cleaning</option>
+                      <option value="dryer-vent">Dryer Vent Cleaning</option>
+                      <option value="hvac">HVAC Maintenance</option>
+                      <option value="combo">Air Duct + Chimney Combo</option>
+                      <option value="other">Other/Not Sure</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium mb-2">
+                      Phone Number (Optional)
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      className="w-full px-4 py-3 border border-input rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-ring"
+                      placeholder="(646) 596-3677"
+                    />
+                    <p className="text-xs text-muted-foreground mt-1">We'll call or email you - your choice</p>
+                  </div>
+
+                  <Button type="submit" size="lg" className="w-full text-lg h-14">
+                    Get Free Estimate
+                  </Button>
+
+                  <p className="text-sm text-muted-foreground text-center">
+                    We'll respond within 2 hours. Usually completes in under 60 seconds.
+                  </p>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
+
+      {/* Simple Footer */}
+      <footer className="py-12 bg-muted">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            <div className="flex items-center justify-center space-x-2">
+              <img src={logo} alt="CleanVent NYC" className="h-10 w-10" />
+              <span className="font-bold text-xl">CleanVent NYC</span>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-muted-foreground">
+              <a href="tel:+16465963677" className="flex items-center hover:text-primary transition-colors">
+                <Phone className="h-4 w-4 mr-2" />
+                (646) 596-3677
+              </a>
+              <span className="hidden sm:block">•</span>
+              <span>16 Sunset RD, Demarest, NJ 07627</span>
+              <span className="hidden sm:block">•</span>
+              <span>Serving all of NYC</span>
+            </div>
+
+            <div className="text-xs text-muted-foreground">
+              <p>Licensed & Insured • EPA-Certified • 7+ Years Experience</p>
+              <p className="mt-2">© {new Date().getFullYear()} CleanVent NYC. All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </main>
+  </>
   );
 };
 
