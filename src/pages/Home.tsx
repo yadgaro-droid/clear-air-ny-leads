@@ -31,11 +31,10 @@ const Home = () => {
             <div className="space-y-8">
               <div className="space-y-4">
                 <h1 className="text-foreground">
-                  Professional Air Duct, Dryer Vent & Chimney Cleaning in New York
+                  Professional Air Duct Cleaning in NYC — Breathe Cleaner Air Today
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-xl">
-                  Breathe cleaner, healthier air with our expert cleaning services for air ducts, dryer vents, and chimneys. 
-                  Certified technicians, advanced equipment, and 100% satisfaction guaranteed.
+                  Trusted by 5,000+ NYC families. Same-day service. Licensed & insured. Free air quality inspection.
                 </p>
               </div>
               
@@ -121,8 +120,63 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Services Overview */}
+      {/* The Problem Section */}
       <section className="py-20 bg-muted">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-foreground mb-4">Why Clean Air Ducts Matter</h2>
+              <p className="text-xl text-muted-foreground">
+                73% of New York homes have dirty air ducts. Allergens, mold, and dust accumulate over years.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              <Card className="border-2">
+                <CardContent className="p-6 text-center space-y-3">
+                  <div className="text-4xl font-bold text-destructive">15-30%</div>
+                  <p className="font-semibold">Efficiency Loss</p>
+                  <p className="text-muted-foreground text-sm">
+                    Dirty ducts reduce HVAC efficiency, costing you $50-100+ per month in wasted energy
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2">
+                <CardContent className="p-6 text-center space-y-3">
+                  <div className="text-4xl font-bold text-destructive">2-5x</div>
+                  <p className="font-semibold">More Allergens</p>
+                  <p className="text-muted-foreground text-sm">
+                    Increased allergies and respiratory issues from circulating dust, pollen, and pet dander
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2">
+                <CardContent className="p-6 text-center space-y-3">
+                  <div className="text-4xl font-bold text-destructive">10+ Years</div>
+                  <p className="font-semibold">Of Buildup</p>
+                  <p className="text-muted-foreground text-sm">
+                    Musty odors and poor air quality from years of accumulated contaminants
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="mt-12 text-center">
+              <p className="text-lg text-muted-foreground mb-6">
+                Professional duct cleaning removes all accumulated contaminants and improves your indoor air quality immediately.
+              </p>
+              <Button size="lg" asChild>
+                <Link to="/contact">Schedule Free Inspection</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Overview */}
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
@@ -169,6 +223,113 @@ const Home = () => {
                   <span className="text-muted-foreground">Create a healthier environment for your family</span>
                 </li>
               </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-foreground mb-4">What NYC Customers Say</h2>
+            <p className="text-xl text-muted-foreground">Trusted by thousands of New York families</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <Card className="border-2">
+              <CardContent className="p-6 space-y-4">
+                <div className="flex items-center space-x-1">
+                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                </div>
+                <p className="text-muted-foreground italic">
+                  "My allergies literally disappeared after they cleaned our ducts. I don't wake up with sinus pressure anymore. Professional, on-time, thorough. Highly recommend!"
+                </p>
+                <p className="font-semibold">— Sarah M., Manhattan</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2">
+              <CardContent className="p-6 space-y-4">
+                <div className="flex items-center space-x-1">
+                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                </div>
+                <p className="text-muted-foreground italic">
+                  "Best $400 I've spent. Our electric bill dropped $30 a month. The team was respectful, efficient, and cleaned up after themselves. Coming back next year!"
+                </p>
+                <p className="font-semibold">— Michael T., Brooklyn</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2">
+              <CardContent className="p-6 space-y-4">
+                <div className="flex items-center space-x-1">
+                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                </div>
+                <p className="text-muted-foreground italic">
+                  "We've lived in our apartment for 12 years and never had our ducts cleaned. Shocked at the dust they pulled out. Air quality is night and day different. Thank you!"
+                </p>
+                <p className="font-semibold">— Jennifer L., Queens</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-muted">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-foreground mb-8 text-center">Common Questions About Air Duct Cleaning</h2>
+
+            <div className="space-y-6">
+              <Card className="border-2">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold text-lg mb-2">How often should I have my air ducts cleaned?</h3>
+                  <p className="text-muted-foreground">
+                    Every 3-5 years for most homes. More frequently if you have pets, allergies, or live in dusty areas. We'll recommend a schedule based on your inspection.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold text-lg mb-2">What areas do you serve?</h3>
+                  <p className="text-muted-foreground">
+                    All of New York City—Manhattan, Brooklyn, Queens, the Bronx, Staten Island, and surrounding areas. Same-day service available throughout the five boroughs.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold text-lg mb-2">Are your technicians licensed and insured?</h3>
+                  <p className="text-muted-foreground">
+                    Absolutely. Our technicians are EPA-certified, licensed by New York State, and fully insured with $2M liability coverage for your protection.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold text-lg mb-2">How long does air duct cleaning take?</h3>
+                  <p className="text-muted-foreground">
+                    Most residential jobs take 2-4 hours depending on the size of your home and HVAC system. We'll provide an accurate time estimate during your free inspection.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>

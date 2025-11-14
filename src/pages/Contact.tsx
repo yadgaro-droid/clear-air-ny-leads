@@ -22,10 +22,10 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.email || !formData.phone) {
+    if (!formData.name || !formData.email || !formData.service) {
       toast({
         title: "Missing Information",
-        description: "Please fill in all required fields.",
+        description: "Please fill in your name, email, and select a service.",
         variant: "destructive",
       });
       return;
@@ -44,11 +44,11 @@ const Contact = () => {
           access_key: "d382f73a-e963-48f4-8404-d3d73fffc53a",
           name: formData.name,
           email: formData.email,
-          phone: formData.phone,
-          service: formData.service || "Not specified",
+          phone: formData.phone || "Not provided",
+          service: formData.service,
           message: formData.message || "No additional message",
           from_name: "CleanVent NYC Website",
-          subject: `New Lead: ${formData.name} - ${formData.service || "General Inquiry"}`,
+          subject: `New Lead: ${formData.name} - ${formData.service}`,
           to: "yadgaro@gmail.com,Shiraleonardshailin@gmail.com,Oriannyc@gmail.com",
         }),
       });
@@ -150,23 +150,8 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                    Phone Number *
-                  </label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="(646) 596-3677"
-                    required
-                  />
-                </div>
-
-                <div>
                   <label htmlFor="service" className="block text-sm font-medium mb-2">
-                    Service Needed
+                    Service Needed *
                   </label>
                   <select
                     id="service"
@@ -174,6 +159,7 @@ const Contact = () => {
                     value={formData.service}
                     onChange={handleChange}
                     className="w-full px-3 py-2 border border-input rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-ring"
+                    required
                   >
                     <option value="">Select a service</option>
                     <option value="air-duct">Air Duct Cleaning</option>
@@ -186,17 +172,18 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
-                    Additional Details
+                  <label htmlFor="phone" className="block text-sm font-medium mb-2">
+                    Phone Number (Optional)
                   </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    value={formData.phone}
                     onChange={handleChange}
-                    placeholder="Tell us more about your needs, property size, or any specific concerns..."
-                    rows={5}
+                    placeholder="(646) 596-3677"
                   />
+                  <p className="text-xs text-muted-foreground mt-1">We'll call or email you - your choice</p>
                 </div>
 
                 <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
@@ -204,7 +191,7 @@ const Contact = () => {
                 </Button>
 
                 <p className="text-sm text-muted-foreground text-center">
-                  By submitting this form, you agree to be contacted by our team regarding your estimate request.
+                  We'll respond within 2 hours. Usually completes in under 60 seconds.
                 </p>
               </form>
             </div>
