@@ -10,6 +10,7 @@ const Home = () => {
   const ratingCount = useCountUp({ end: 4.7, duration: 2000, decimals: 1 });
   const reviewsCount = useCountUp({ end: 200, duration: 2000, suffix: "+" });
   const satisfactionCount = useCountUp({ end: 100, duration: 2000, suffix: "%" });
+  const yearsCount = useCountUp({ end: 7, duration: 2000, suffix: "+" });
   const benefits = [
     { icon: Wind, title: "Improved Air Quality", description: "Remove dust, allergens, and pollutants for healthier breathing" },
     { icon: Shield, title: "Certified Technicians", description: "Licensed and insured professionals you can trust" },
@@ -91,11 +92,15 @@ const Home = () => {
                   </div>
                   <div className="flex items-center space-x-2 bg-primary/10 rounded-lg px-4 py-3">
                     <Award className="h-5 w-5 text-primary flex-shrink-0" />
-                    <span className="text-sm font-semibold">7+ Years Experience</span>
+                    <span className="text-sm font-semibold">
+                      <span ref={yearsCount.ref}>{yearsCount.value}</span> Years Experience
+                    </span>
                   </div>
                   <div className="flex items-center space-x-2 bg-primary/10 rounded-lg px-4 py-3">
                     <BadgeCheck className="h-5 w-5 text-primary flex-shrink-0" />
-                    <span className="text-sm font-semibold">100% Satisfaction</span>
+                    <span className="text-sm font-semibold">
+                      <span ref={satisfactionCount.ref}>{satisfactionCount.value}</span> Satisfaction
+                    </span>
                   </div>
                 </div>
 
