@@ -7,6 +7,7 @@ interface UseCountUpOptions {
   start?: number;
   suffix?: string;
   prefix?: string;
+  startOnMount?: boolean;
 }
 
 export const useCountUp = ({
@@ -16,15 +17,17 @@ export const useCountUp = ({
   start = 0,
   suffix = '',
   prefix = '',
+  startOnMount = true,
 }: UseCountUpOptions) => {
   const [count, setCount] = useState(start);
   const [hasAnimated, setHasAnimated] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    if (!ref.current || hasAnimated) return;
+    if (hasAnimated) return;
 
     const startAnimation = () => {
+      if (hasAnimated) return;
       setHasAnimated(true);
 
       const startTime = Date.now();
@@ -50,6 +53,17 @@ export const useCountUp = ({
       requestAnimationFrame(animate);
     };
 
+    // Start animation on mount after small delay
+    if (startOnMount) {
+      const timer = setTimeout(() => {
+        startAnimation();
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+
+    // For elements not on mount, use Intersection Observer
+    if (!ref.current) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !hasAnimated) {
@@ -60,18 +74,8 @@ export const useCountUp = ({
     );
 
     observer.observe(ref.current);
-
-    // Check if element is already visible on mount
-    const rect = ref.current.getBoundingClientRect();
-    const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
-
-    if (isVisible && !hasAnimated) {
-      // Delay slightly to ensure smooth initial render
-      setTimeout(startAnimation, 100);
-    }
-
     return () => observer.disconnect();
-  }, [end, duration, start, hasAnimated]);
+  }, [end, duration, start, hasAnimated, startOnMount]);
 
   const displayValue = decimals > 0
     ? count.toFixed(decimals)
