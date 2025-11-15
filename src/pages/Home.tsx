@@ -388,7 +388,8 @@ const Home = () => {
                   <input type="hidden" name="access_key" value="d382f73a-e963-48f4-8404-d3d73fffc53a" />
                   <input type="hidden" name="from_name" value="CleanVent NYC Website" />
                   <input type="hidden" name="subject" value="New Lead from CleanVent NYC Website" />
-                  <input type="hidden" name="to" value="yadgaro@gmail.com,Shiraleonardshailin@gmail.com,Oriannyc@gmail.com,cleanventprofessional@gmail.com" />
+                  <input type="hidden" name="email" value="yadgaro@gmail.com" />
+                  <input type="hidden" name="cc" value="Shiraleonardshailin@gmail.com,Oriannyc@gmail.com,cleanventprofessional@gmail.com" />
                   <input type="hidden" name="redirect" value="https://cleanventnyc.com/thank-you" />
 
                   <div>
