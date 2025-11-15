@@ -144,14 +144,7 @@ const Home = () => {
                   <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
                     <benefit.icon className="h-8 w-8 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-xl">
-                    {benefit.title === "100% Satisfaction" ? (
-                      <span ref={satisfactionCount.ref}>{satisfactionCount.value}</span>
-                    ) : (
-                      benefit.title
-                    )}
-                    {benefit.title === "100% Satisfaction" && " Satisfaction"}
-                  </h3>
+                  <h3 className="font-semibold text-xl">{benefit.title}</h3>
                   <p className="text-muted-foreground">{benefit.description}</p>
                 </CardContent>
               </Card>
