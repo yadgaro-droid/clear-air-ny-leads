@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Wind, Shield, Clock, Star, Phone, ShieldCheck, Award, BadgeCheck } from "lucide-react";
@@ -6,6 +8,8 @@ import logo from "@/assets/logo.png";
 import { useCountUp } from "@/hooks/useCountUp";
 
 const Home = () => {
+  const navigate = useNavigate();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const familiesCount = useCountUp({ end: 5000, duration: 2000, suffix: "+" });
   const ratingCount = useCountUp({ end: 4.7, duration: 2000, decimals: 1 });
   const reviewsCount = useCountUp({ end: 200, duration: 2000, suffix: "+" });
@@ -384,12 +388,35 @@ const Home = () => {
 
             <Card className="border-2">
               <CardContent className="p-8">
-                <form className="space-y-6" action="https://api.web3forms.com/submit" method="POST">
-                  <input type="hidden" name="access_key" value="d382f73a-e963-48f4-8404-d3d73fffc53a" />
-                  <input type="hidden" name="from_name" value="CleanVent NYC Website" />
-                  <input type="hidden" name="subject" value="New Lead from CleanVent NYC Website" />
-                  <input type="hidden" name="ccemail" value="Shiraleonardshailin@gmail.com,Oriannyc@gmail.com,cleanventprofessional@gmail.com" />
-                  <input type="hidden" name="redirect" value="https://cleanventnyc.com/thank-you" />
+                <form className="space-y-6" onSubmit={async (e) => {
+                  e.preventDefault();
+                  setIsSubmitting(true);
+
+                  const formData = new FormData(e.currentTarget);
+                  const data = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    service: formData.get('service'),
+                  };
+
+                  try {
+                    const response = await fetch('/api/contact', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify(data),
+                    });
+
+                    if (response.ok) {
+                      navigate('/thank-you');
+                    } else {
+                      alert('Failed to send message. Please call us at (646) 596-3677');
+                    }
+                  } catch (error) {
+                    alert('Failed to send message. Please call us at (646) 596-3677');
+                  } finally {
+                    setIsSubmitting(false);
+                  }
+                }}>
 
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
