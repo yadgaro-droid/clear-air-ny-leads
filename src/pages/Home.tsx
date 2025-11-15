@@ -3,8 +3,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Wind, Shield, Clock, Star, Phone, ShieldCheck, Award, BadgeCheck } from "lucide-react";
 import heroImage from "@/assets/hero-duct-cleaning.jpg";
 import logo from "@/assets/logo.png";
+import { useCountUp } from "@/hooks/useCountUp";
 
 const Home = () => {
+  const familiesCount = useCountUp({ end: 5000, duration: 2000, suffix: "+" });
+  const ratingCount = useCountUp({ end: 4.7, duration: 2000, decimals: 1 });
+  const reviewsCount = useCountUp({ end: 200, duration: 2000, suffix: "+" });
+  const yearsCount = useCountUp({ end: 7, duration: 2000, suffix: "+" });
   const benefits = [
     { icon: Wind, title: "Improved Air Quality", description: "Remove dust, allergens, and pollutants for healthier breathing" },
     { icon: Shield, title: "Certified Technicians", description: "Licensed and insured professionals you can trust" },
@@ -51,7 +56,7 @@ const Home = () => {
                   Professional Air Duct Cleaning in NYC — Breathe Cleaner Air Today
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-xl">
-                  Trusted by 5,000+ NYC families. EPA-certified technicians. Same-day service available. Licensed & insured. Get your free air quality inspection today.
+                  Trusted by <span ref={familiesCount.ref} className="font-semibold">{familiesCount.value}</span> NYC families. EPA-certified technicians. Same-day service available. Licensed & insured. Get your free air quality inspection today.
                 </p>
               </div>
               
@@ -74,7 +79,9 @@ const Home = () => {
                   <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
                   <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
                   <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
-                  <span className="ml-2 text-sm font-medium">4.7/5 (200+ reviews)</span>
+                  <span className="ml-2 text-sm font-medium">
+                    <span ref={ratingCount.ref}>{ratingCount.value}</span>/5 (<span ref={reviewsCount.ref}>{reviewsCount.value}</span> reviews)
+                  </span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -107,7 +114,9 @@ const Home = () => {
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-soft p-6 max-w-xs">
-                <p className="font-semibold text-2xl text-primary">7+ Years</p>
+                <p className="font-semibold text-2xl text-primary">
+                  <span ref={yearsCount.ref}>{yearsCount.value}</span> Years
+                </p>
                 <p className="text-muted-foreground">Serving New York</p>
               </div>
             </div>
