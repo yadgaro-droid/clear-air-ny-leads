@@ -422,26 +422,12 @@ const Home = () => {
                     </select>
                   </div>
 
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                      Phone Number (Optional)
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      className="w-full px-4 py-3 border border-input rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-ring"
-                      placeholder="(646) 596-3677"
-                    />
-                    <p className="text-xs text-muted-foreground mt-1">We'll call or email you - your choice</p>
-                  </div>
-
                   <Button type="submit" size="lg" className="w-full text-lg h-14">
                     Get Free Estimate
                   </Button>
 
                   <p className="text-sm text-muted-foreground text-center">
-                    We'll respond within 2 hours. Usually completes in under 60 seconds.
+                    We'll contact you within 2 hours. Takes less than 60 seconds to complete.
                   </p>
                 </form>
               </CardContent>
