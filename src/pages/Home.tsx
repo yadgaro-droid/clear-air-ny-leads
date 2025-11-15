@@ -409,9 +409,12 @@ const Home = () => {
                     if (response.ok) {
                       navigate('/thank-you');
                     } else {
-                      alert('Failed to send message. Please call us at (646) 596-3677');
+                      const errorData = await response.json();
+                      console.error('API Error:', errorData);
+                      alert(`Error: ${errorData.message || errorData.error || 'Failed to send'}. Please call (646) 596-3677`);
                     }
                   } catch (error) {
+                    console.error('Submission error:', error);
                     alert('Failed to send message. Please call us at (646) 596-3677');
                   } finally {
                     setIsSubmitting(false);
