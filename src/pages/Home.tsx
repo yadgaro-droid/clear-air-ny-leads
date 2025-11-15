@@ -59,7 +59,7 @@ const Home = () => {
                 <Button size="lg" asChild className="text-lg h-14 px-8">
                   <a href="#contact-form">Get Free Quote</a>
                 </Button>
-                <Button size="lg" variant="outline" asChild className="text-lg h-14 px-8">
+                <Button size="lg" variant="secondary" asChild className="text-lg h-14 px-8">
                   <a href="tel:+16465963677" className="flex items-center">
                     <Phone className="mr-2 h-5 w-5" />
                     Call Now
