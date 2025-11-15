@@ -56,12 +56,19 @@ Please respond within 2 hours.`,
     if (!response.ok) {
       const errorData = await response.json();
       console.error('MailerSend error:', errorData);
-      throw new Error('Failed to send email');
+      return res.status(response.status).json({
+        error: 'MailerSend API error',
+        details: errorData,
+        message: 'You may need to verify your domain in MailerSend dashboard'
+      });
     }
 
     return res.status(200).json({ success: true, message: 'Email sent successfully' });
   } catch (error) {
     console.error('Error sending email:', error);
-    return res.status(500).json({ error: 'Failed to send email' });
+    return res.status(500).json({
+      error: 'Failed to send email',
+      details: error instanceof Error ? error.message : 'Unknown error'
+    });
   }
 }
