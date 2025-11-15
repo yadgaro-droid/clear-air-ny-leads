@@ -9,7 +9,7 @@ const Home = () => {
   const familiesCount = useCountUp({ end: 5000, duration: 2000, suffix: "+" });
   const ratingCount = useCountUp({ end: 4.7, duration: 2000, decimals: 1 });
   const reviewsCount = useCountUp({ end: 200, duration: 2000, suffix: "+" });
-  const yearsCount = useCountUp({ end: 7, duration: 2000, suffix: "+" });
+  const satisfactionCount = useCountUp({ end: 100, duration: 2000, suffix: "%" });
   const benefits = [
     { icon: Wind, title: "Improved Air Quality", description: "Remove dust, allergens, and pollutants for healthier breathing" },
     { icon: Shield, title: "Certified Technicians", description: "Licensed and insured professionals you can trust" },
@@ -114,9 +114,7 @@ const Home = () => {
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-soft p-6 max-w-xs">
-                <p className="font-semibold text-2xl text-primary">
-                  <span ref={yearsCount.ref}>{yearsCount.value}</span> Years
-                </p>
+                <p className="font-semibold text-2xl text-primary">7+ Years</p>
                 <p className="text-muted-foreground">Serving New York</p>
               </div>
             </div>
@@ -141,7 +139,14 @@ const Home = () => {
                   <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
                     <benefit.icon className="h-8 w-8 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-xl">{benefit.title}</h3>
+                  <h3 className="font-semibold text-xl">
+                    {benefit.title === "100% Satisfaction" ? (
+                      <span ref={satisfactionCount.ref}>{satisfactionCount.value}</span>
+                    ) : (
+                      benefit.title
+                    )}
+                    {benefit.title === "100% Satisfaction" && " Satisfaction"}
+                  </h3>
                   <p className="text-muted-foreground">{benefit.description}</p>
                 </CardContent>
               </Card>
