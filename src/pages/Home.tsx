@@ -51,13 +51,13 @@ const Home = () => {
                   Professional Air Duct Cleaning in NYC — Breathe Cleaner Air Today
                 </h1>
                 <p className="text-xl text-muted-foreground max-w-xl">
-                  Trusted by 5,000+ NYC families. Same-day service. Licensed & insured. Free air quality inspection.
+                  Trusted by 5,000+ NYC families. EPA-certified technicians. Same-day service available. Licensed & insured. Get your free air quality inspection today.
                 </p>
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" asChild className="text-lg h-14 px-8">
-                  <a href="#contact-form">Get Free Estimate</a>
+                  <a href="#contact-form">Get Free Quote</a>
                 </Button>
                 <Button size="lg" variant="outline" asChild className="text-lg h-14 px-8">
                   <a href="tel:+16465963677" className="flex items-center">
@@ -91,6 +91,10 @@ const Home = () => {
                     <span className="text-sm font-semibold">100% Satisfaction</span>
                   </div>
                 </div>
+
+                <p className="text-sm text-muted-foreground pt-2">
+                  Serving Manhattan, Brooklyn, Queens, Bronx, and Staten Island
+                </p>
               </div>
             </div>
 
@@ -212,7 +216,7 @@ const Home = () => {
               </div>
 
               <Button size="lg" asChild>
-                <a href="#contact-form">Get Free Estimate</a>
+                <a href="#contact-form">Get Free Quote</a>
               </Button>
             </div>
 
@@ -357,7 +361,7 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-foreground mb-4">Get Your Free Estimate</h2>
+              <h2 className="text-foreground mb-4">Get Your Free Quote</h2>
               <p className="text-xl text-muted-foreground">
                 Fill out the form below and we'll respond within 2 hours. Or call us now at{" "}
                 <a href="tel:+16465963677" className="text-primary font-semibold hover:underline">
@@ -371,6 +375,7 @@ const Home = () => {
                 <form className="space-y-6" action="https://api.web3forms.com/submit" method="POST">
                   <input type="hidden" name="access_key" value="d382f73a-e963-48f4-8404-d3d73fffc53a" />
                   <input type="hidden" name="from_name" value="CleanVent NYC Website" />
+                  <input type="hidden" name="subject" value="New Lead from CleanVent NYC Website" />
                   <input type="hidden" name="to" value="yadgaro@gmail.com,Shiraleonardshailin@gmail.com,Oriannyc@gmail.com" />
                   <input type="hidden" name="redirect" value="https://cleanventnyc.com/thank-you" />
 
@@ -423,7 +428,7 @@ const Home = () => {
                   </div>
 
                   <Button type="submit" size="lg" className="w-full text-lg h-14">
-                    Get Free Estimate
+                    Get Free Quote
                   </Button>
 
                   <p className="text-sm text-muted-foreground text-center">
