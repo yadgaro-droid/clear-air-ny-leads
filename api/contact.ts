@@ -14,56 +14,71 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    // Send email using MailerSend API
-    const response = await fetch('https://api.mailersend.com/v1/email', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.MAILERSEND_API_KEY}`,
+    // Recipients list
+    const recipients = [
+      { email: 'yadgaro@gmail.com', name: 'Omri' },
+      { email: 'Shiraleonardshailin@gmail.com', name: 'Shira' },
+      { email: 'Oriannyc@gmail.com', name: 'Orian' },
+      { email: 'cleanventprofessional@gmail.com', name: 'CleanVent Professional' },
+    ];
+
+    // Email content
+    const emailContent = {
+      from: {
+        email: 'noreply@cleanventnyc.com',
+        name: 'CleanVent NYC Website',
       },
-      body: JSON.stringify({
-        from: {
-          email: 'noreply@cleanventnyc.com',
-          name: 'CleanVent NYC Website',
-        },
-        to: [
-          { email: 'yadgaro@gmail.com', name: 'Omri' },
-          { email: 'Shiraleonardshailin@gmail.com', name: 'Shira' },
-          { email: 'Oriannyc@gmail.com', name: 'Orian' },
-          { email: 'cleanventprofessional@gmail.com', name: 'CleanVent Professional' },
-        ],
-        subject: 'New Lead from CleanVent NYC Website',
-        text: `New lead received:
+      subject: 'New Lead from CleanVent NYC Website',
+      text: `New lead received:
 
 Name: ${name}
 Email: ${email}
 Service: ${service}
 
 Please respond within 2 hours.`,
-        html: `<h2>New Lead from CleanVent NYC Website</h2>
+      html: `<h2>New Lead from CleanVent NYC Website</h2>
 <p><strong>Name:</strong> ${name}</p>
 <p><strong>Email:</strong> ${email}</p>
 <p><strong>Service:</strong> ${service}</p>
 <hr>
 <p style="color: #666; font-size: 12px;">Please respond within 2 hours.</p>`,
-        reply_to: {
-          email: email,
-          name: name,
-        },
-      }),
-    });
+      reply_to: {
+        email: email,
+        name: name,
+      },
+    };
 
-    if (!response.ok) {
-      const errorData = await response.json();
+    // Send separate email to each recipient (MailerSend trial allows 1 recipient per email)
+    const emailPromises = recipients.map(recipient =>
+      fetch('https://api.mailersend.com/v1/email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.MAILERSEND_API_KEY}`,
+        },
+        body: JSON.stringify({
+          ...emailContent,
+          to: [recipient], // Only 1 recipient per email
+        }),
+      })
+    );
+
+    // Wait for all emails to send
+    const responses = await Promise.all(emailPromises);
+
+    // Check if any failed
+    const failedResponses = responses.filter(r => !r.ok);
+    if (failedResponses.length > 0) {
+      const errorData = await failedResponses[0].json();
       console.error('MailerSend error:', errorData);
-      return res.status(response.status).json({
+      return res.status(failedResponses[0].status).json({
         error: 'MailerSend API error',
         details: errorData,
-        message: 'You may need to verify your domain in MailerSend dashboard'
+        message: 'Failed to send to some recipients'
       });
     }
 
-    return res.status(200).json({ success: true, message: 'Email sent successfully' });
+    return res.status(200).json({ success: true, message: 'Emails sent successfully to all recipients' });
   } catch (error) {
     console.error('Error sending email:', error);
     return res.status(500).json({
