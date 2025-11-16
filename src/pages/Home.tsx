@@ -489,7 +489,10 @@ const Home = () => {
 
             <div className="text-xs text-muted-foreground">
               <p>Licensed & Insured • EPA-Certified • 7+ Years Experience</p>
-              <p className="mt-2">© {new Date().getFullYear()} CleanVent NYC. All rights reserved.</p>
+              <p className="mt-2">
+                © {new Date().getFullYear()} CleanVent NYC. All rights reserved. •{" "}
+                <a href="/privacy" className="hover:text-primary underline">Privacy Policy</a>
+              </p>
             </div>
           </div>
         </div>

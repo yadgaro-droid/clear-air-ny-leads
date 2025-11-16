@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Home from "./pages/Home";
 import ThankYou from "./pages/ThankYou";
+import Privacy from "./pages/Privacy";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const AppContent = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/thank-you" element={<ThankYou />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </div>
