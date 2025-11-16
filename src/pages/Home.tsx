@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Wind, Shield, Clock, Star, Phone, ShieldCheck, Award, BadgeCheck } from "lucide-react";
@@ -8,7 +7,6 @@ import logo from "@/assets/logo.png";
 import { useCountUp } from "@/hooks/useCountUp";
 
 const Home = () => {
-  const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const familiesCount = useCountUp({ end: 5000, duration: 2000, suffix: "+" });
   const ratingCount = useCountUp({ end: 4.7, duration: 2000, decimals: 1 });
@@ -388,38 +386,16 @@ const Home = () => {
 
             <Card className="border-2">
               <CardContent className="p-8">
-                <form className="space-y-6" onSubmit={async (e) => {
-                  e.preventDefault();
-                  setIsSubmitting(true);
-
-                  const formData = new FormData(e.currentTarget);
-                  const data = {
-                    name: formData.get('name'),
-                    email: formData.get('email'),
-                    service: formData.get('service'),
-                  };
-
-                  try {
-                    const response = await fetch('/api/contact', {
-                      method: 'POST',
-                      headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify(data),
-                    });
-
-                    if (response.ok) {
-                      navigate('/thank-you');
-                    } else {
-                      const errorData = await response.json();
-                      console.error('API Error:', errorData);
-                      alert(`Error: ${errorData.message || errorData.error || 'Failed to send'}. Please call (646) 596-3677`);
-                    }
-                  } catch (error) {
-                    console.error('Submission error:', error);
-                    alert('Failed to send message. Please call us at (646) 596-3677');
-                  } finally {
-                    setIsSubmitting(false);
-                  }
-                }}>
+                <form
+                  className="space-y-6"
+                  action="https://api.web3forms.com/submit"
+                  method="POST"
+                  onSubmit={() => setIsSubmitting(true)}
+                >
+                  <input type="hidden" name="access_key" value="d382f73a-e963-48f4-8404-d3d73fffc53a" />
+                  <input type="hidden" name="subject" value="New Lead from CleanVent NYC Website" />
+                  <input type="hidden" name="redirect" value="https://cleanventnyc.com/thank-you" />
+                  <input type="hidden" name="to" value="info@upsidedown.solutions" />
 
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -469,8 +445,8 @@ const Home = () => {
                     </select>
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full text-lg h-14">
-                    Get Free Quote
+                  <Button type="submit" size="lg" className="w-full text-lg h-14" disabled={isSubmitting}>
+                    {isSubmitting ? 'Sending...' : 'Get Free Quote'}
                   </Button>
 
                   <p className="text-sm text-muted-foreground text-center">
