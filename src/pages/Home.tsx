@@ -386,38 +386,15 @@ const Home = () => {
 
             <Card className="border-2">
               <CardContent className="p-8">
-                <form className="space-y-6" onSubmit={async (e) => {
-                  e.preventDefault();
-                  setIsSubmitting(true);
-
-                  const formData = new FormData(e.currentTarget);
-                  const data = {
-                    name: formData.get('name'),
-                    email: formData.get('email'),
-                    service: formData.get('service'),
-                  };
-
-                  try {
-                    const response = await fetch('/api/contact', {
-                      method: 'POST',
-                      headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify(data),
-                    });
-
-                    if (response.ok) {
-                      window.location.href = '/thank-you';
-                    } else {
-                      const errorData = await response.json();
-                      console.error('API Error:', errorData);
-                      alert(`Error: ${JSON.stringify(errorData)}. Please call (646) 596-3677`);
-                    }
-                  } catch (error) {
-                    console.error('Submission error:', error);
-                    alert(`Failed: ${error}. Please call us at (646) 596-3677`);
-                  } finally {
-                    setIsSubmitting(false);
-                  }
-                }}>
+                <form
+                  className="space-y-6"
+                  action="https://formsubmit.co/info@upsidedown.solutions"
+                  method="POST"
+                  onSubmit={() => setIsSubmitting(true)}
+                >
+                  <input type="hidden" name="_subject" value="New Lead from CleanVent NYC Website" />
+                  <input type="hidden" name="_next" value="https://cleanventnyc.com/thank-you" />
+                  <input type="hidden" name="_captcha" value="false" />
 
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
