@@ -386,16 +386,35 @@ const Home = () => {
 
             <Card className="border-2">
               <CardContent className="p-8">
-                <form
-                  className="space-y-6"
-                  action="https://api.web3forms.com/submit"
-                  method="POST"
-                  onSubmit={() => setIsSubmitting(true)}
-                >
-                  <input type="hidden" name="access_key" value="d382f73a-e963-48f4-8404-d3d73fffc53a" />
-                  <input type="hidden" name="subject" value="New Lead from CleanVent NYC Website" />
-                  <input type="hidden" name="redirect" value="https://cleanventnyc.com/thank-you" />
-                  <input type="hidden" name="to" value="info@upsidedown.solutions" />
+                <form className="space-y-6" onSubmit={async (e) => {
+                  e.preventDefault();
+                  setIsSubmitting(true);
+
+                  const formData = new FormData(e.currentTarget);
+                  const data = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    service: formData.get('service'),
+                  };
+
+                  try {
+                    const response = await fetch('/api/contact', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify(data),
+                    });
+
+                    if (response.ok) {
+                      window.location.href = '/thank-you';
+                    } else {
+                      alert('Failed to send message. Please call us at (646) 596-3677');
+                    }
+                  } catch (error) {
+                    alert('Failed to send message. Please call us at (646) 596-3677');
+                  } finally {
+                    setIsSubmitting(false);
+                  }
+                }}>
 
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
