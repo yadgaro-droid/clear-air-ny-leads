@@ -388,13 +388,22 @@ const Home = () => {
               <CardContent className="p-8">
                 <form
                   className="space-y-6"
-                  action="https://formsubmit.co/info@upsidedown.solutions"
-                  method="POST"
-                  onSubmit={() => setIsSubmitting(true)}
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    setIsSubmitting(true);
+
+                    // @ts-ignore - EmailJS is loaded via CDN
+                    emailjs.sendForm('service_asmuvo2', 'template_fpqq66m', e.currentTarget)
+                      .then(() => {
+                        window.location.href = '/thank-you';
+                      })
+                      .catch((error: any) => {
+                        console.error('EmailJS error:', error);
+                        alert('Failed to send message. Please call us at (646) 596-3677');
+                        setIsSubmitting(false);
+                      });
+                  }}
                 >
-                  <input type="hidden" name="_subject" value="New Lead from CleanVent NYC Website" />
-                  <input type="hidden" name="_next" value="https://cleanventnyc.com/thank-you" />
-                  <input type="hidden" name="_captcha" value="false" />
 
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
