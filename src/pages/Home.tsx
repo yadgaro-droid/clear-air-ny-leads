@@ -393,7 +393,7 @@ const Home = () => {
                     setIsSubmitting(true);
 
                     // @ts-ignore - EmailJS is loaded via CDN
-                    emailjs.sendForm('service_asmuvo2', 'template_fpqq66m', e.currentTarget)
+                    emailjs.sendForm('service_0uzikxr', 'template_fpqq66m', e.currentTarget)
                       .then(() => {
                         window.location.href = '/thank-you';
                       })
