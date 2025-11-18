@@ -395,6 +395,15 @@ const Home = () => {
                     // @ts-ignore - EmailJS is loaded via CDN
                     emailjs.sendForm('service_0uzikxr', 'template_fpqq66m', e.currentTarget)
                       .then(() => {
+                        // Track Google Ads conversion
+                        // @ts-ignore - gtag is loaded via Google Ads script
+                        if (typeof gtag !== 'undefined') {
+                          gtag('event', 'conversion', {
+                            'send_to': 'AW-17485397894/gzaaCNq9vMlbElb_15FB'
+                          });
+                        }
+
+                        // Redirect to thank you page
                         window.location.href = '/thank-you';
                       })
                       .catch((error: any) => {
