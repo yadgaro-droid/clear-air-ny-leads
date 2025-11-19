@@ -7,15 +7,8 @@ const ThankYou = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Ensure we're on production domain
-    const isProduction = window.location.hostname === 'cleanventnyc.com' || window.location.hostname === 'www.cleanventnyc.com';
-
-    if (!isProduction) {
-      console.log('Thank You page - Tracking disabled (not on production domain)');
-      return;
-    }
-
-    // Push virtual pageview to GTM for SPA routing
+    // Push page view to GTM for SPA routing
+    // GTM will handle the conversion tracking via the "Thank you - Page View" tag
     (window as any).dataLayer = (window as any).dataLayer || [];
     (window as any).dataLayer.push({
       event: 'virtualPageview',
@@ -23,37 +16,7 @@ const ThankYou = () => {
       title: 'Thank You - CleanVent NYC'
     });
 
-    // Also push standard page_view event
-    (window as any).dataLayer.push({
-      event: 'page_view',
-      page_path: '/thank-you'
-    });
-
-    // Wait for gtag to be available and fire conversion
-    const fireConversion = () => {
-      if (typeof (window as any).gtag !== 'undefined') {
-        console.log('Firing Google Ads conversion: AW-17485397894/gzaaCNq9vMlbElb_15FB');
-
-        // Fire conversion event
-        (window as any).gtag('event', 'conversion', {
-          'send_to': 'AW-17485397894/gzaaCNq9vMlbElb_15FB',
-          'value': 50.0,
-          'currency': 'USD'
-        });
-
-        // Also fire page view
-        (window as any).gtag('event', 'page_view', {
-          page_path: '/thank-you',
-          page_title: 'Thank You - CleanVent NYC'
-        });
-      } else {
-        console.warn('gtag not loaded yet, retrying...');
-        setTimeout(fireConversion, 100);
-      }
-    };
-
-    // Give gtag a moment to load, then fire
-    setTimeout(fireConversion, 500);
+    console.log('Thank You page loaded - GTM will handle conversion tracking');
   }, []);
 
   return (
