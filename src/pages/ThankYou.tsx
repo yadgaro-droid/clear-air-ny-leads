@@ -21,8 +21,14 @@ const ThankYou = () => {
       page_path: '/thank-you'
     });
 
-    // Update browser history for GTM to detect URL change
+    // Track Google Ads conversion
     if (typeof (window as any).gtag !== 'undefined') {
+      // Fire conversion event
+      (window as any).gtag('event', 'conversion', {
+        'send_to': 'AW-17485397894/gzaaCNq9vMlbElb_15FB'
+      });
+
+      // Also fire page view
       (window as any).gtag('event', 'page_view', {
         page_path: '/thank-you',
         page_title: 'Thank You - CleanVent NYC'

@@ -395,25 +395,8 @@ const Home = () => {
                     // @ts-ignore - EmailJS is loaded via CDN
                     emailjs.sendForm('service_0uzikxr', 'template_fpqq66m', e.currentTarget)
                       .then(() => {
-                        // Track Google Ads conversion
-                        // @ts-ignore - gtag is loaded via Google Ads script
-                        if (typeof gtag !== 'undefined') {
-                          gtag('event', 'conversion', {
-                            'send_to': 'AW-17485397894/gzaaCNq9vMlbElb_15FB',
-                            'event_callback': function() {
-                              // Redirect after conversion is tracked
-                              window.location.href = '/thank-you';
-                            }
-                          });
-
-                          // Fallback: redirect after 1 second if callback doesn't fire
-                          setTimeout(function() {
-                            window.location.href = '/thank-you';
-                          }, 1000);
-                        } else {
-                          // If gtag not available, redirect immediately
-                          window.location.href = '/thank-you';
-                        }
+                        // Redirect to thank you page (conversion tracking happens there)
+                        window.location.href = '/thank-you';
                       })
                       .catch((error: any) => {
                         console.error('EmailJS error:', error);
