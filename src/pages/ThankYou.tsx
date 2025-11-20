@@ -8,15 +8,18 @@ const ThankYou = () => {
 
   useEffect(() => {
     // Push page view to GTM for SPA routing
-    // GTM will handle the conversion tracking via the "Thank you - Page View" tag
+    // CRITICAL: Preserve gclid and other URL parameters for Google Ads conversion attribution
+    // Without gclid, Google Ads cannot link the conversion to the ad click
     (window as any).dataLayer = (window as any).dataLayer || [];
     (window as any).dataLayer.push({
       event: 'virtualPageview',
-      page: '/thank-you',
-      title: 'Thank You - CleanVent NYC'
+      page_path: window.location.pathname + window.location.search, // Includes ?gclid=... if present
+      page_location: window.location.href, // Full URL with all parameters
+      page_title: 'Thank You - CleanVent NYC'
     });
 
     console.log('Thank You page loaded - GTM will handle conversion tracking');
+    console.log('Page location with gclid:', window.location.href);
   }, []);
 
   return (
@@ -100,7 +103,7 @@ const ThankYou = () => {
               </a>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <a href="mailto:yadgaro@gmail.com" className="flex items-center gap-2">
+              <a href="mailto:cleanventprofessional@gmail.com" className="flex items-center gap-2">
                 <Mail className="h-5 w-5" />
                 Email Us
               </a>
