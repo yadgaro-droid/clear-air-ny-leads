@@ -8,11 +8,56 @@ import { useCountUp } from "@/hooks/useCountUp";
 
 const Home = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [phone, setPhone] = useState("");
+  const [phoneError, setPhoneError] = useState("");
   const familiesCount = useCountUp({ end: 5000, duration: 2000, suffix: "+" });
   const ratingCount = useCountUp({ end: 4.7, duration: 2000, decimals: 1 });
   const reviewsCount = useCountUp({ end: 200, duration: 2000, suffix: "+" });
   const satisfactionCount = useCountUp({ end: 100, duration: 2000, suffix: "%" });
   const yearsCount = useCountUp({ end: 7, duration: 2000, suffix: "+" });
+
+  // NYC area codes: 212, 332, 646, 718, 917, 347, 929
+  const validNYCAreaCodes = ['212', '332', '646', '718', '917', '347', '929'];
+
+  const formatPhoneNumber = (value: string) => {
+    // Remove all non-digits
+    const digits = value.replace(/\D/g, '');
+
+    // Format as (XXX) XXX-XXXX
+    if (digits.length <= 3) {
+      return digits;
+    } else if (digits.length <= 6) {
+      return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+    } else {
+      return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6, 10)}`;
+    }
+  };
+
+  const validateNYCPhone = (phoneNumber: string) => {
+    const digits = phoneNumber.replace(/\D/g, '');
+
+    if (digits.length !== 10) {
+      return 'Phone number must be 10 digits';
+    }
+
+    const areaCode = digits.slice(0, 3);
+    if (!validNYCAreaCodes.includes(areaCode)) {
+      return `Must be a valid NYC area code (${validNYCAreaCodes.join(', ')})`;
+    }
+
+    return '';
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPhoneNumber(e.target.value);
+    setPhone(formatted);
+
+    // Clear error when user starts typing
+    if (phoneError) {
+      setPhoneError('');
+    }
+  };
+
   const benefits = [
     { icon: Wind, title: "Improved Air Quality", description: "Remove dust, allergens, and pollutants for healthier breathing" },
     { icon: Shield, title: "Certified Technicians", description: "Licensed and insured professionals you can trust" },
@@ -390,6 +435,14 @@ const Home = () => {
                   className="space-y-6"
                   onSubmit={(e) => {
                     e.preventDefault();
+
+                    // Validate phone number before submission
+                    const error = validateNYCPhone(phone);
+                    if (error) {
+                      setPhoneError(error);
+                      return;
+                    }
+
                     setIsSubmitting(true);
 
                     // @ts-ignore - EmailJS is loaded via CDN
@@ -421,17 +474,28 @@ const Home = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      Email Address *
+                    <label htmlFor="phone" className="block text-sm font-medium mb-2">
+                      Phone Number *
                     </label>
                     <input
-                      type="email"
-                      id="email"
-                      name="email"
+                      type="tel"
+                      id="phone"
+                      name="phone"
                       required
-                      className="w-full px-4 py-3 border border-input rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-ring"
-                      placeholder="john@example.com"
+                      value={phone}
+                      onChange={handlePhoneChange}
+                      className={`w-full px-4 py-3 border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-ring ${
+                        phoneError ? 'border-red-500 focus:ring-red-500' : 'border-input'
+                      }`}
+                      placeholder="(212) 555-1234"
+                      maxLength={14}
                     />
+                    {phoneError && (
+                      <p className="mt-1 text-sm text-red-600">{phoneError}</p>
+                    )}
+                    <p className="mt-1 text-xs text-muted-foreground">
+                      NYC area codes only: 212, 332, 646, 718, 917, 347, 929
+                    </p>
                   </div>
 
                   <div>
