@@ -1,73 +1,209 @@
-# Welcome to your Lovable project
+# CleanVent NYC - Air Duct Cleaning Website
 
-## Project info
+**Production URL:** https://cleanventnyc.com
+**Staging URL:** https://staging.cleanventnyc.com
+**Repository:** https://github.com/yadgaro-droid/clear-air-ny-leads
 
-**URL**: https://lovable.dev/projects/bcfc825a-6957-48df-a134-4381a386d96b
+---
 
-## How can I edit this code?
+## Project Status: Phase 6 Complete (Staging Environment Live)
 
-There are several ways of editing your application.
+### Current State
+- Production site: Fully operational
+- Staging environment: Live and functional
+- Next Priority: Separate analytics and email templates
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/bcfc825a-6957-48df-a134-4381a386d96b) and start prompting.
+## Quick Start
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+git clone https://github.com/yadgaro-droid/clear-air-ny-leads.git
+cd clear-air-ny-leads
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Project Overview
 
-**Use GitHub Codespaces**
+Lead generation website for CleanVent NYC air duct cleaning services.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- Service Area: All NYC boroughs
+- Phone: (646) 596-3677
+- Email: cleanventprofessional@gmail.com
+- Office: 16 Sunset RD, Demarest, NJ 07627
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## Technology Stack
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- React 18 + TypeScript + Vite
+- Tailwind CSS + shadcn/ui
+- Vercel hosting (auto-deploy)
+- EmailJS forms
+- Google Analytics 4 + GTM
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/bcfc825a-6957-48df-a134-4381a386d96b) and click on Share -> Publish.
+## What's Been Completed
 
-## Can I connect a custom domain to my Lovable project?
+### Core Website
+- Responsive landing page with testimonials, FAQ
+- Contact form with EmailJS (3 email recipients)
+- Phone tracking with GA4/GTM
+- Privacy Policy page
+- Custom favicon
 
-Yes, you can!
+### Production Deployment
+- Custom domain: cleanventnyc.com + www
+- HTTPS with automatic SSL
+- Vercel auto-deploy from main branch
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Staging Environment (Dec 2, 2025)
+- Staging branch + subdomain: staging.cleanventnyc.com
+- Environment detection system
+- Visual staging banner (yellow)
+- Vercel SSO protection
+- Environment-aware logging
+- Complete STAGING.md documentation (825 lines)
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
+
+## What Needs To Be Done (Priority Order)
+
+### HIGH PRIORITY
+
+#### 1. Separate Analytics (Phase 7) - 1-2 hours
+Prevent staging test data from polluting production analytics.
+
+Tasks:
+- Create new GA4 property "CleanVent NYC - Staging"
+- Create new GTM container "CleanVent NYC - Staging"
+- Update src/config/environment.ts with staging IDs
+- Replace hardcoded GTM/GA4 IDs with dynamic values
+- Test and verify separate tracking
+
+See STAGING.md Phase 7 for detailed steps.
+
+#### 2. Separate EmailJS Template (Phase 8) - 30 min
+Prevent test submissions from going to customer emails.
+
+Tasks:
+- Clone EmailJS template (template_fpqq66m)
+- Create "CleanVent NYC - Staging" template
+- Add [STAGING] prefix to subject
+- Update src/config/environment.ts
+- Test form submission
+
+See STAGING.md Phase 8 for detailed steps.
+
+### MEDIUM PRIORITY
+
+#### 3. Git Workflow Documentation (Phase 9) - 1 hour
+Create WORKFLOW.md with feature → staging → main workflow.
+
+#### 4. Testing Checklist (Phase 10) - 1 hour
+Create TESTING.md with visual, functional, analytics tests.
+
+---
+
+## Configuration Reference
+
+### Environment Settings (src/config/environment.ts)
+
+```
+Environment detection:
+- Production: cleanventnyc.com | www.cleanventnyc.com
+- Staging: staging.cleanventnyc.com
+- Development: localhost | other
+
+Email Recipients:
+- Production: cleanventprofessional@gmail.com
+- Staging: staging-test@cleanventprofessional@gmail.com
+
+EmailJS:
+- Service: service_0uzikxr
+- Prod Template: template_fpqq66m
+- Staging Template: TODO Phase 8
+
+Analytics:
+- Prod GTM: GTM-MG4QT5TJ
+- Staging GTM: TODO Phase 7
+- Prod GA4: G-W685J6YNLM
+- Staging GA4: TODO Phase 7
+```
+
+### Vercel Settings
+
+Production:
+- Branch: main
+- Domain: cleanventnyc.com, www.cleanventnyc.com
+
+Staging:
+- Branch: staging
+- Domain: staging.cleanventnyc.com
+- Protection: Vercel SSO
+
+---
+
+## Documentation
+
+- README.md (this file) - Project overview
+- STAGING.md - Complete staging documentation
+- WORKFLOW.md (to be created)
+- TESTING.md (to be created)
+
+---
+
+## Development Workflow
+
+```bash
+# 1. Start from staging
+git checkout staging && git pull origin staging
+
+# 2. Create feature branch
+git checkout -b feature/your-feature-name
+
+# 3. Make changes and test
+npm run dev
+
+# 4. Merge to staging
+git checkout staging
+git merge feature/your-feature-name
+git push origin staging
+
+# 5. Test on staging: https://staging.cleanventnyc.com
+
+# 6. Deploy to production
+git checkout main && git merge staging && git push origin main
+```
+
+---
+
+## Troubleshooting
+
+- Staging 401 error: Expected - requires Vercel SSO
+- Changes not appearing: Check `vercel ls --yes`, hard refresh
+- Staging banner missing: Verify URL is staging.cleanventnyc.com
+- Form to wrong email: EmailJS template not separated yet (Phase 8)
+
+---
+
+## Next Session Quick Start
+
+When starting new session:
+
+1. Read this README.md first
+2. Check STAGING.md for staging details
+3. Pull latest: `git checkout staging && git pull`
+4. Review priorities above
+
+**Current Top Priority:** Complete Phase 7 (Analytics) and Phase 8 (EmailJS) to isolate staging from production data.
+
+---
+
+Last Updated: December 2, 2025
+Status: Active Development
+Version: 1.0.0 (Staging complete, analytics separation pending)
