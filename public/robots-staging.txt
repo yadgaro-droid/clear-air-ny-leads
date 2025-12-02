@@ -1,0 +1,24 @@
+# robots.txt for Staging Environment
+# Block all search engines from indexing staging site
+
+User-agent: *
+Disallow: /
+
+# Specifically block common bots
+User-agent: Googlebot
+Disallow: /
+
+User-agent: Bingbot
+Disallow: /
+
+User-agent: Slurp
+Disallow: /
+
+User-agent: DuckDuckBot
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: YandexBot
+Disallow: /

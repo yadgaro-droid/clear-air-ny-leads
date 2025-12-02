@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import Home from "./pages/Home";
 import ThankYou from "./pages/ThankYou";
 import Privacy from "./pages/Privacy";
+import { StagingBanner } from "./components/StagingBanner";
 
 const queryClient = new QueryClient();
 
@@ -21,16 +22,19 @@ const AppContent = () => {
   }, [pathname]);
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <div className="flex-1">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/thank-you" element={<ThankYou />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="*" element={<Home />} />
-        </Routes>
+    <>
+      <StagingBanner />
+      <div className="flex flex-col min-h-screen">
+        <div className="flex-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/thank-you" element={<ThankYou />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

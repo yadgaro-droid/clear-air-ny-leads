@@ -5,6 +5,7 @@ import { CheckCircle, Wind, Shield, Clock, Star, Phone, ShieldCheck, Award, Badg
 import heroImage from "@/assets/hero-duct-cleaning.jpg";
 import logo from "@/assets/logo.png";
 import { useCountUp } from "@/hooks/useCountUp";
+import { getConfig, isStaging } from "@/config/environment";
 
 const Home = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -445,15 +446,27 @@ const Home = () => {
 
                     setIsSubmitting(true);
 
+                    // Log environment for debugging
+                    const config = getConfig();
+                    console.log(`📧 Submitting form in ${config.environment.toUpperCase()} environment`);
+                    if (isStaging()) {
+                      console.log('⚠️ STAGING MODE: Email will be sent to test recipient');
+                      console.log('💡 TIP: Update EmailJS template to send staging emails to your test inbox');
+                    }
+
                     // @ts-ignore - EmailJS is loaded via CDN
-                    emailjs.sendForm('service_0uzikxr', 'template_fpqq66m', e.currentTarget)
+                    emailjs.sendForm('service_0uzikxr', config.emailTemplateId, e.currentTarget)
                       .then(() => {
+                        console.log('✅ Email sent successfully');
                         // Redirect to thank you page (conversion tracking happens there)
                         window.location.href = '/thank-you';
                       })
                       .catch((error: any) => {
-                        console.error('EmailJS error:', error);
-                        alert('Failed to send message. Please call us at (646) 596-3677');
+                        console.error('❌ EmailJS error:', error);
+                        const message = isStaging()
+                          ? 'Test form submission failed. Check console for details.'
+                          : 'Failed to send message. Please call us at (646) 596-3677';
+                        alert(message);
                         setIsSubmitting(false);
                       });
                   }}
