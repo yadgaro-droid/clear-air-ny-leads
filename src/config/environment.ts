@@ -46,7 +46,7 @@ export const getConfig = () => {
 
     emailTemplateId: env === 'production'
       ? 'template_fpqq66m'
-      : 'template_fpqq66m', // Can create separate staging template later
+      : 'template_pmyh25i', // Staging template with [STAGING] prefix
 
     // Analytics configuration
     enableTracking: env === 'production' || env === 'staging',
