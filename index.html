@@ -1,31 +1,48 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Only load tracking on production domain -->
+    <!-- Environment-aware analytics tracking -->
     <script>
-      // Check if we're on the production domain
-      var isProduction = window.location.hostname === 'cleanventnyc.com' || window.location.hostname === 'www.cleanventnyc.com';
+      // Detect environment based on hostname
+      var hostname = window.location.hostname;
+      var isProduction = hostname === 'cleanventnyc.com' || hostname === 'www.cleanventnyc.com';
+      var isStaging = hostname === 'staging.cleanventnyc.com';
+      var isDevelopment = !isProduction && !isStaging;
 
-      if (isProduction) {
-        // Google Tag Manager - PRODUCTION ONLY
+      // Set analytics IDs based on environment
+      var gtmId = isProduction ? 'GTM-MG4QT5TJ' : (isStaging ? 'GTM-W24X5XTZ' : null);
+      var ga4Id = isProduction ? 'G-W685J6YNLM' : (isStaging ? 'G-FBWZ1N7VST' : null);
+      var googleAdsId = isProduction ? 'AW-17485397894' : null; // Only on production
+
+      // Load Google Tag Manager for production and staging
+      if (gtmId) {
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-MG4QT5TJ');
+        })(window,document,'script','dataLayer',gtmId);
 
-        // Google Ads Conversion Tracking - PRODUCTION ONLY
+        console.log('✅ GTM loaded:', gtmId, '(' + (isProduction ? 'Production' : 'Staging') + ')');
+      }
+
+      // Load Google Ads Conversion Tracking (production only)
+      if (googleAdsId) {
         var gtagScript = document.createElement('script');
         gtagScript.async = true;
-        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17485397894';
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + googleAdsId;
         document.head.appendChild(gtagScript);
 
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'AW-17485397894');
-      } else {
-        console.log('Tracking disabled - not on production domain (' + window.location.hostname + ')');
+        gtag('config', googleAdsId);
+
+        console.log('✅ Google Ads loaded:', googleAdsId);
+      }
+
+      // Log environment for debugging
+      if (isDevelopment) {
+        console.log('🔧 Development mode - Tracking disabled (' + hostname + ')');
       }
     </script>
 

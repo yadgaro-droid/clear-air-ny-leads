@@ -51,15 +51,15 @@ export const getConfig = () => {
     // Analytics configuration
     enableTracking: env === 'production' || env === 'staging',
 
-    // GTM Container ID (we'll create separate staging container)
+    // GTM Container ID
     gtmContainerId: env === 'production'
       ? 'GTM-MG4QT5TJ'
-      : 'GTM-STAGING', // Will be updated after creating staging GTM
+      : 'GTM-W24X5XTZ', // Staging GTM container
 
-    // GA4 Measurement ID (we'll create separate staging property)
+    // GA4 Measurement ID
     ga4MeasurementId: env === 'production'
       ? 'G-W685J6YNLM'
-      : 'G-STAGING', // Will be updated after creating staging GA4
+      : 'G-FBWZ1N7VST', // Staging GA4 property
 
     // Google Ads Conversion ID
     googleAdsId: env === 'production'
