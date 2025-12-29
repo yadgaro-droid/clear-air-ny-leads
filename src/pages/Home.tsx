@@ -132,13 +132,22 @@ const Home = () => {
                 </div>
               </div>
 
-              {/* CTA with phone number */}
+              {/* CTA with two buttons */}
               <div className="space-y-3 pt-4">
-                <Button size="lg" asChild className="text-xl h-16 px-8 bg-red-600 hover:bg-red-700 w-full sm:w-auto">
-                  <a href="tel:+16465963677" className="flex items-center justify-center">
-                    BOOK NEXT-DAY SLOT - (646) 596-3677
-                  </a>
-                </Button>
+                <p className="text-lg font-semibold text-foreground">
+                  Get your free quote now!
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button size="lg" asChild className="text-lg h-14 px-8">
+                    <a href="#contact-form">BOOK NEXT-DAY SLOT</a>
+                  </Button>
+                  <Button size="lg" variant="secondary" asChild className="text-lg h-14 px-8">
+                    <a href="tel:+16465963677" className="flex items-center">
+                      <Phone className="mr-2 h-5 w-5" />
+                      (646) 596-3677
+                    </a>
+                  </Button>
+                </div>
               </div>
             </div>
 
