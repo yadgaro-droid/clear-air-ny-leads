@@ -101,55 +101,44 @@ const Home = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-                <div className="inline-block bg-primary text-primary-foreground px-4 py-2 rounded-lg font-bold text-sm md:text-base mb-2">
-                  SPECIAL OFFER: Until End of December
-                </div>
-                <h1 className="text-foreground text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                  AIR DUCT CLEANING NYC - $25 PER DUCT
+                <h1 className="text-4xl md:text-5xl font-bold leading-tight text-foreground">
+                  🚨 NYC AIR QUALITY ALERT - WINTER DUST & ALLERGENS PEAK NOW 🚨
                 </h1>
-                <p className="text-2xl md:text-3xl font-semibold text-muted-foreground">
-                  Professional Clean + Sanitizing • Same-Day Service Available
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                  Air Duct Cleaning from $25/Duct + Sanitizing
+                </h2>
+                <p className="text-lg md:text-xl font-medium text-muted-foreground">
+                  Next-Day Service Available • Same-Day Slots Filling Fast
                 </p>
               </div>
-              
+
               {/* Key Benefits with Checkmarks */}
-              <div className="space-y-3 text-lg">
+              <div className="space-y-3 text-lg md:text-xl">
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="font-medium">$25 per duct - No minimum required</span>
+                  <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="font-medium">$25/duct basic + 99.9% bacteria sanitizing</span>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="font-medium">Sanitizing included - Kills 99.9% bacteria</span>
+                  <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="font-medium">Professional • No hidden fees</span>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="font-medium">Same-day service all New York</span>
+                  <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="font-medium">Reduce allergies • Save 15-25% on energy</span>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0 mt-0.5" />
-                  <span className="font-medium">
-                    <span ref={yearsCount.ref}>{yearsCount.value}</span> Years NYC Experience
-                  </span>
+                  <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0 mt-0.5" />
+                  <span className="font-medium">Same-day or next-day available</span>
                 </div>
               </div>
 
-              {/* CTA with urgency */}
+              {/* CTA with phone number */}
               <div className="space-y-3 pt-4">
-                <p className="text-lg font-semibold text-foreground">
-                  FREE Quote in 30 Seconds ↓
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" asChild className="text-lg h-14 px-8">
-                    <a href="#contact-form">Get Free Quote</a>
-                  </Button>
-                  <Button size="lg" variant="secondary" asChild className="text-lg h-14 px-8">
-                    <a href="tel:+16465963677" className="flex items-center">
-                      <Phone className="mr-2 h-5 w-5" />
-                      Call Now
-                    </a>
-                  </Button>
-                </div>
+                <Button size="lg" asChild className="text-xl h-16 px-8 bg-red-600 hover:bg-red-700 w-full sm:w-auto">
+                  <a href="tel:+16465963677" className="flex items-center justify-center">
+                    BOOK NEXT-DAY SLOT - (646) 596-3677
+                  </a>
+                </Button>
               </div>
             </div>
 
