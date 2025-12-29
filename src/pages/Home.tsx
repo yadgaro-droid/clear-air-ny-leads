@@ -101,11 +101,14 @@ const Home = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
+                <div className="inline-block bg-primary text-primary-foreground px-4 py-2 rounded-lg font-bold text-sm md:text-base mb-2">
+                  SPECIAL OFFER: Until End of December
+                </div>
                 <h1 className="text-foreground text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                  🔥 AIR DUCT CLEANING NYC - $25 PER DUCT! 🔥
+                  AIR DUCT CLEANING NYC - $25 PER DUCT
                 </h1>
-                <p className="text-2xl md:text-3xl font-semibold text-primary">
-                  Basic Routine Clean + Sanitizing • Same-Day All Boroughs
+                <p className="text-2xl md:text-3xl font-semibold text-muted-foreground">
+                  Professional Clean + Sanitizing • Same-Day Service Available
                 </p>
               </div>
               
