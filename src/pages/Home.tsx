@@ -95,59 +95,56 @@ const Home = () => {
       </header>
 
       <main>
-        {/* Hero Section - Perplexity Aggressive Design */}
-        <section className="min-h-screen bg-gradient-to-br from-[#FF4500] via-[#FF6B35] to-[#DC2626] flex items-center justify-center p-5 text-white relative overflow-hidden">
-          <div className="max-w-7xl w-full text-center">
+        {/* Hero Section - Professional Design (Perplexity Research-Based) */}
+        <section
+          className="relative min-h-[80vh] flex items-center justify-center py-20 px-5"
+          style={{
+            backgroundImage: `linear-gradient(rgba(248,250,252,0.9), rgba(248,250,252,0.9)), url(${heroImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        >
+          <div className="max-w-3xl w-full text-center bg-white/95 py-16 px-10 md:px-16 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.1)]">
 
-            {/* Alert Banner with Pulse */}
-            <div className="bg-red-600/90 text-white text-xl md:text-2xl font-bold py-4 px-8 rounded-xl mb-8 shadow-2xl animate-pulse">
-              🚨 NYC AIR QUALITY ALERT - Winter Dust & Allergens Peak NOW! 🚨
+            {/* Main Headline */}
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4 leading-tight">
+              NYC Air Duct Cleaning
+            </h1>
+
+            <h2 className="text-3xl md:text-5xl font-semibold text-blue-600 mb-6">
+              from $25 per Duct
+            </h2>
+
+            <p className="text-xl text-gray-600 mb-10 leading-relaxed">
+              Professional service • Same-day available<br />
+              Serving all NYC boroughs
+            </p>
+
+            {/* Trust Badge */}
+            <div className="mb-10">
+              <span className="inline-block bg-green-500 text-white text-lg font-semibold py-3 px-6 rounded-full">
+                Trusted by 5,000+ NYC Families
+              </span>
             </div>
 
-            {/* Main Offer */}
-            <div className="mb-12">
-              <h1 className="text-5xl md:text-7xl font-black mb-3 tracking-wide" style={{ textShadow: '3px 3px 8px rgba(0,0,0,0.5)' }}>
-                🔥 AIR DUCT CLEANING
-              </h1>
-              <h2 className="text-4xl md:text-6xl font-extrabold mb-5" style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.4)' }}>
-                $25 PER DUCT + Sanitizing!
-              </h2>
-              <p className="text-xl md:text-2xl opacity-95">
-                Same-Day Service - All NYC Boroughs
-              </p>
-            </div>
-
-            {/* Benefits Grid 2x2 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
-              <div className="bg-white/20 backdrop-blur-md p-6 rounded-2xl text-lg md:text-xl font-semibold border-2 border-white/30 transition-all hover:bg-white/30 hover:-translate-y-2 hover:shadow-2xl">
-                <span className="text-3xl mr-3">✅</span>
-                $25/duct basic + 99.9% sanitizing
-              </div>
-              <div className="bg-white/20 backdrop-blur-md p-6 rounded-2xl text-lg md:text-xl font-semibold border-2 border-white/30 transition-all hover:bg-white/30 hover:-translate-y-2 hover:shadow-2xl">
-                <span className="text-3xl mr-3">✅</span>
-                Same-Day Brooklyn/Queens/Manhattan
-              </div>
-              <div className="bg-white/20 backdrop-blur-md p-6 rounded-2xl text-lg md:text-xl font-semibold border-2 border-white/30 transition-all hover:bg-white/30 hover:-translate-y-2 hover:shadow-2xl">
-                <span className="text-3xl mr-3">✅</span>
-                Reduce allergies + 15-25% energy savings
-              </div>
-              <div className="bg-white/20 backdrop-blur-md p-6 rounded-2xl text-lg md:text-xl font-semibold border-2 border-white/30 transition-all hover:bg-white/30 hover:-translate-y-2 hover:shadow-2xl">
-                <span className="text-3xl mr-3">✅</span>
-                Next-Day Slots Filling Fast!
-              </div>
-            </div>
-
-            {/* Primary CTA */}
-            <div className="space-y-4">
+            {/* CTA Buttons */}
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6">
               <a
                 href="#contact-form"
-                className="inline-block bg-red-600 text-white text-2xl md:text-3xl font-extrabold py-6 px-12 rounded-3xl border-3 border-white/30 shadow-2xl transition-all hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(220,38,38,0.7)] hover:bg-red-700"
+                className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-2xl font-semibold py-5 px-10 rounded-xl shadow-[0_10px_30px_rgba(37,99,235,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(37,99,235,0.4)]"
               >
-                BOOK NEXT-DAY SLOT
+                Get Free Quote
               </a>
-              <p className="text-2xl md:text-3xl font-bold text-yellow-300" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.5)' }}>
-                📞 <a href="tel:+16465963677" className="hover:text-yellow-200">(646) 596-3677</a>
-              </p>
+
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">📞</span>
+                <a
+                  href="tel:+16465963677"
+                  className="text-2xl font-bold text-gray-800 hover:text-blue-600 transition-colors"
+                >
+                  (646) 596-3677
+                </a>
+              </div>
             </div>
 
           </div>
