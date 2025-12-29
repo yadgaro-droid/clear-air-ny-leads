@@ -101,60 +101,52 @@ const Home = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-                <h1 className="text-foreground">
-                  Professional Air Duct Cleaning in NYC — Breathe Cleaner Air Today
+                <h1 className="text-foreground text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                  🔥 AIR DUCT CLEANING NYC - $25 PER DUCT! 🔥
                 </h1>
-                <p className="text-xl text-muted-foreground max-w-xl">
-                  Trusted by <span ref={familiesCount.ref} className="font-semibold">{familiesCount.value}</span> NYC families. EPA-certified technicians. Same-day service available. Licensed & insured. Get your free air quality inspection today.
+                <p className="text-2xl md:text-3xl font-semibold text-primary">
+                  Basic Routine Clean + Sanitizing • Same-Day All Boroughs
                 </p>
               </div>
               
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" asChild className="text-lg h-14 px-8">
-                  <a href="#contact-form">Get Free Quote</a>
-                </Button>
-                <Button size="lg" variant="secondary" asChild className="text-lg h-14 px-8">
-                  <a href="tel:+16465963677" className="flex items-center">
-                    <Phone className="mr-2 h-5 w-5" />
-                    Call Now
-                  </a>
-                </Button>
-              </div>
-
-              <div className="flex flex-col space-y-4 pt-4">
-                <div className="flex items-center">
-                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
-                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
-                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
-                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
-                  <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
-                  <span className="ml-2 text-sm font-medium">
-                    <span ref={ratingCount.ref}>{ratingCount.value}</span>/5 (<span ref={reviewsCount.ref}>{reviewsCount.value}</span> reviews)
+              {/* Key Benefits with Checkmarks */}
+              <div className="space-y-3 text-lg">
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="font-medium">$25 per duct - No minimum required</span>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="font-medium">Sanitizing included - Kills 99.9% bacteria</span>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="font-medium">Same-day service all New York</span>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0 mt-0.5" />
+                  <span className="font-medium">
+                    <span ref={yearsCount.ref}>{yearsCount.value}</span> Years NYC Experience
                   </span>
                 </div>
+              </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div className="flex items-center space-x-2 bg-primary/10 rounded-lg px-4 py-3">
-                    <ShieldCheck className="h-5 w-5 text-primary flex-shrink-0" />
-                    <span className="text-sm font-semibold">Licensed & Insured</span>
-                  </div>
-                  <div className="flex items-center space-x-2 bg-primary/10 rounded-lg px-4 py-3">
-                    <Award className="h-5 w-5 text-primary flex-shrink-0" />
-                    <span className="text-sm font-semibold">
-                      <span ref={yearsCount.ref}>{yearsCount.value}</span> Years Experience
-                    </span>
-                  </div>
-                  <div className="flex items-center space-x-2 bg-primary/10 rounded-lg px-4 py-3">
-                    <BadgeCheck className="h-5 w-5 text-primary flex-shrink-0" />
-                    <span className="text-sm font-semibold">
-                      <span ref={satisfactionCount.ref}>{satisfactionCount.value}</span> Satisfaction
-                    </span>
-                  </div>
-                </div>
-
-                <p className="text-sm text-muted-foreground pt-2">
-                  Serving Manhattan, Brooklyn, Queens, Bronx, and Staten Island
+              {/* CTA with urgency */}
+              <div className="space-y-3 pt-4">
+                <p className="text-lg font-semibold text-foreground">
+                  FREE Quote in 30 Seconds ↓
                 </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button size="lg" asChild className="text-lg h-14 px-8">
+                    <a href="#contact-form">Get Free Quote</a>
+                  </Button>
+                  <Button size="lg" variant="secondary" asChild className="text-lg h-14 px-8">
+                    <a href="tel:+16465963677" className="flex items-center">
+                      <Phone className="mr-2 h-5 w-5" />
+                      Call Now
+                    </a>
+                  </Button>
+                </div>
               </div>
             </div>
 
