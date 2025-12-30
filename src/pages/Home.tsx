@@ -6,6 +6,8 @@ import heroImage from "@/assets/hero-duct-cleaning.jpg";
 import logo from "@/assets/logo.png";
 import { useCountUp } from "@/hooks/useCountUp";
 import { getConfig, isStaging } from "@/config/environment";
+import BeforeAfterGallery from "@/components/BeforeAfterGallery";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 
 const Home = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -95,56 +97,79 @@ const Home = () => {
       </header>
 
       <main>
-        {/* Hero Section - Professional Design (Perplexity Research-Based) */}
+        {/* Hero Section - Professional Design with Auto-Playing Before/After */}
         <section
-          className="relative min-h-[80vh] flex items-center justify-center py-20 px-5"
+          className="relative min-h-[90vh] flex items-center justify-center py-20 px-5"
           style={{
             backgroundImage: `linear-gradient(rgba(248,250,252,0.9), rgba(248,250,252,0.9)), url(${heroImage})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
         >
-          <div className="max-w-3xl w-full text-center bg-white/95 py-16 px-10 md:px-16 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.1)]">
+          <div className="max-w-6xl w-full bg-white/95 py-12 px-8 md:px-12 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.1)]">
 
-            {/* Main Headline */}
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4 leading-tight">
-              NYC Air Duct Cleaning
-            </h1>
+            <div className="grid md:grid-cols-2 gap-10 items-center">
 
-            <h2 className="text-3xl md:text-5xl font-semibold text-blue-600 mb-6">
-              from $25 per Duct
-            </h2>
+              {/* Left Side - Text & CTA */}
+              <div className="text-center md:text-left">
+                {/* Main Headline */}
+                <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4 leading-tight">
+                  NYC Air Duct Cleaning
+                </h1>
 
-            <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-              Professional service • Same-day available<br />
-              Serving all NYC boroughs
-            </p>
+                <h2 className="text-3xl md:text-4xl font-semibold text-blue-600 mb-4">
+                  from $25 per Duct
+                </h2>
 
-            {/* Trust Badge */}
-            <div className="mb-10">
-              <span className="inline-block bg-green-500 text-white text-lg font-semibold py-3 px-6 rounded-full">
-                Trusted by 5,000+ NYC Families
-              </span>
-            </div>
+                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                  Professional service • Same-day available<br />
+                  Serving all NYC boroughs
+                </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-              <a
-                href="#contact-form"
-                className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-2xl font-semibold py-5 px-10 rounded-xl shadow-[0_10px_30px_rgba(37,99,235,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(37,99,235,0.4)]"
-              >
-                Get Free Quote
-              </a>
+                {/* Trust Badge */}
+                <div className="mb-6">
+                  <span className="inline-block bg-green-500 text-white text-base font-semibold py-2 px-5 rounded-full">
+                    Trusted by 5,000+ NYC Families
+                  </span>
+                </div>
 
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">📞</span>
-                <a
-                  href="tel:+16465963677"
-                  className="text-2xl font-bold text-gray-800 hover:text-blue-600 transition-colors"
-                >
-                  (646) 596-3677
-                </a>
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+                  <a
+                    href="#contact-form"
+                    className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-xl font-semibold py-4 px-8 rounded-xl shadow-[0_10px_30px_rgba(37,99,235,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(37,99,235,0.4)]"
+                  >
+                    Get Free Quote
+                  </a>
+
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl">📞</span>
+                    <a
+                      href="tel:+16465963677"
+                      className="text-xl font-bold text-gray-800 hover:text-blue-600 transition-colors"
+                    >
+                      (646) 596-3677
+                    </a>
+                  </div>
+                </div>
               </div>
+
+              {/* Right Side - Auto-Playing Before/After Slider */}
+              <div>
+                <div className="mb-3 text-center">
+                  <p className="text-sm font-semibold text-blue-600 uppercase tracking-wide">
+                    Watch The Transformation
+                  </p>
+                </div>
+                <BeforeAfterSlider
+                  beforeImage="/images/before-after/flexible-duct-before.jpeg"
+                  afterImage="/images/before-after/flexible-duct-after.jpeg"
+                  caption="Years of dust removed in minutes"
+                  autoPlay={true}
+                  autoPlayDuration={3000}
+                />
+              </div>
+
             </div>
 
           </div>
@@ -175,6 +200,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+
 
       {/* The Problem Section */}
       <section className="py-20 bg-muted">
@@ -283,6 +309,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <BeforeAfterGallery />
+
 
       {/* Testimonials Section */}
       <section className="py-20 bg-background">
