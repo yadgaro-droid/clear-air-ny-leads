@@ -23,6 +23,12 @@ const galleryItems: GalleryItem[] = [
     beforeImage: '/images/before-after/rigid-opening-before.jpeg',
     afterImage: '/images/before-after/rigid-opening-after.jpeg',
     caption: 'Rigid Duct Opening'
+  },
+  {
+    id: 'duct-interior',
+    beforeImage: '/images/before-after/duct-interior-before.jpeg',
+    afterImage: '/images/before-after/duct-interior-after.jpeg',
+    caption: 'Duct Interior'
   }
 ];
 
@@ -37,7 +43,7 @@ const BeforeAfterGallery = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {galleryItems.map((item) => (
             <div key={item.id}>
               <BeforeAfterSlider
