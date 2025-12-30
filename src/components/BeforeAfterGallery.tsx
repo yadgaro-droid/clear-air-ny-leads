@@ -1,5 +1,4 @@
 import BeforeAfterSlider from './BeforeAfterSlider';
-import LazyLoad from './LazyLoad';
 
 interface GalleryItem {
   id: string;
@@ -59,7 +58,7 @@ const BeforeAfterGallery = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {galleryItems.map((item) => (
-            <LazyLoad
+            <div
               key={item.id}
               className="transform transition-transform hover:scale-[1.02] duration-300"
             >
@@ -74,7 +73,7 @@ const BeforeAfterGallery = () => {
                 afterLabel="After"
                 caption={item.caption}
               />
-            </LazyLoad>
+            </div>
           ))}
         </div>
 

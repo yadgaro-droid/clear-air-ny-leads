@@ -23,6 +23,10 @@ const BeforeAfterSlider = ({
   afterLabel = 'After',
   caption
 }: BeforeAfterSliderProps) => {
+  // Use JPEG fallback for better compatibility
+  const leftImg = beforeImageFallback || beforeImage;
+  const rightImg = afterImageFallback || afterImage;
+
   return (
     <div className="space-y-3">
       <div
@@ -32,12 +36,10 @@ const BeforeAfterSlider = ({
         tabIndex={0}
       >
         <ReactCompareImage
-          leftImage={beforeImage}
-          rightImage={afterImage}
+          leftImage={leftImg}
+          rightImage={rightImg}
           leftImageLabel={beforeLabel}
           rightImageLabel={afterLabel}
-          leftImageAlt={beforeAlt}
-          rightImageAlt={afterAlt}
           sliderLineColor="#2563EB"
           sliderLineWidth={3}
           handleSize={40}
