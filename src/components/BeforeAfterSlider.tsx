@@ -19,7 +19,7 @@ const BeforeAfterSlider = ({
   autoPlay = false,
   autoPlayDuration = 3000
 }: BeforeAfterSliderProps) => {
-  const [sliderPosition, setSliderPosition] = useState(autoPlay ? 0 : 50);
+  const [sliderPosition, setSliderPosition] = useState(autoPlay ? 100 : 50);
   const [isDragging, setIsDragging] = useState(false);
   const [hasAutoPlayed, setHasAutoPlayed] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -69,8 +69,8 @@ const BeforeAfterSlider = ({
         const elapsed = Date.now() - startTime;
         const progress = Math.min(elapsed / autoPlayDuration, 1);
 
-        // Animate from 0 (all BEFORE) to 100 (all AFTER)
-        setSliderPosition(progress * 100);
+        // Animate from 100 (all BEFORE/dirty) to 0 (all AFTER/clean revealed)
+        setSliderPosition(100 - (progress * 100));
 
         if (progress < 1) {
           requestAnimationFrame(animate);
@@ -135,10 +135,10 @@ const BeforeAfterSlider = ({
         </div>
 
         {/* Labels */}
-        <div className="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 rounded text-sm font-medium">
+        <div className="absolute top-4 left-4 bg-black/70 text-white px-4 py-2 rounded text-lg font-bold">
           Before
         </div>
-        <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded text-sm font-medium">
+        <div className="absolute top-4 right-4 bg-black/70 text-white px-4 py-2 rounded text-lg font-bold">
           After
         </div>
       </div>

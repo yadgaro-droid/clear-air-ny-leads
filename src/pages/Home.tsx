@@ -19,6 +19,10 @@ const Home = () => {
   const satisfactionCount = useCountUp({ end: 100, duration: 2000, suffix: "%" });
   const yearsCount = useCountUp({ end: 7, duration: 2000, suffix: "+" });
 
+  // Hero section animations
+  const heroFamiliesCount = useCountUp({ end: 5000, duration: 3000, suffix: "+", prefix: "" });
+  const heroPriceCount = useCountUp({ start: 100, end: 25, duration: 5000, prefix: "$" });
+
   // NYC area codes: 212, 332, 646, 718, 917, 347, 929
   const validNYCAreaCodes = ['212', '332', '646', '718', '917', '347', '929'];
 
@@ -118,7 +122,7 @@ const Home = () => {
                 </h1>
 
                 <h2 className="text-3xl md:text-4xl font-semibold text-blue-600 mb-4">
-                  from $25 per Duct
+                  from <span ref={heroPriceCount.ref}>{heroPriceCount.value}</span> per Duct
                 </h2>
 
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">
@@ -129,7 +133,7 @@ const Home = () => {
                 {/* Trust Badge */}
                 <div className="mb-6">
                   <span className="inline-block bg-green-500 text-white text-base font-semibold py-2 px-5 rounded-full">
-                    Trusted by 5,000+ NYC Families
+                    Trusted by <span ref={heroFamiliesCount.ref}>{heroFamiliesCount.value}</span> NYC Families
                   </span>
                 </div>
 
