@@ -6,7 +6,6 @@ import heroImage from "@/assets/hero-duct-cleaning.jpg";
 import logo from "@/assets/logo.png";
 import { useCountUp } from "@/hooks/useCountUp";
 import { getConfig, isStaging } from "@/config/environment";
-import BeforeAfterGallery from "@/components/BeforeAfterGallery";
 
 const Home = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -284,9 +283,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      {/* Before-After Gallery Section */}
-      <BeforeAfterGallery />
 
       {/* Testimonials Section */}
       <section className="py-20 bg-background">
