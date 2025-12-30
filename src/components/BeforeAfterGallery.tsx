@@ -4,42 +4,26 @@ interface GalleryItem {
   id: string;
   beforeImage: string;
   afterImage: string;
-  beforeImageFallback: string;
-  afterImageFallback: string;
-  beforeAlt: string;
-  afterAlt: string;
   caption: string;
 }
 
 const galleryItems: GalleryItem[] = [
   {
     id: 'flexible-duct',
-    beforeImage: '/images/before-after/flexible-duct-before.webp',
-    afterImage: '/images/before-after/flexible-duct-after.webp',
-    beforeImageFallback: '/images/before-after/flexible-duct-before.jpeg',
-    afterImageFallback: '/images/before-after/flexible-duct-after.jpeg',
-    beforeAlt: 'Flexible air duct before cleaning showing heavy dust accumulation and debris buildup',
-    afterAlt: 'Flexible air duct after professional cleaning showing pristine clean surface',
+    beforeImage: '/images/before-after/flexible-duct-before.jpeg',
+    afterImage: '/images/before-after/flexible-duct-after.jpeg',
     caption: 'Flexible Air Duct - Years of dust and debris removed'
   },
   {
     id: 'vent-opening',
-    beforeImage: '/images/before-after/vent-opening-before.webp',
-    afterImage: '/images/before-after/vent-opening-after.webp',
-    beforeImageFallback: '/images/before-after/vent-opening-before.jpeg',
-    afterImageFallback: '/images/before-after/vent-opening-after.jpeg',
-    beforeAlt: 'Vent opening before cleaning showing dust, dirt and particulate matter',
-    afterAlt: 'Vent opening after professional cleaning showing sanitized clean surface',
+    beforeImage: '/images/before-after/vent-opening-before.jpeg',
+    afterImage: '/images/before-after/vent-opening-after.jpeg',
     caption: 'Vent Opening - Professional deep cleaning restoration'
   },
   {
     id: 'rigid-opening',
-    beforeImage: '/images/before-after/rigid-opening-before.webp',
-    afterImage: '/images/before-after/rigid-opening-after.webp',
-    beforeImageFallback: '/images/before-after/rigid-opening-before.jpeg',
-    afterImageFallback: '/images/before-after/rigid-opening-after.jpeg',
-    beforeAlt: 'Rigid duct opening before cleaning showing contamination and dust buildup',
-    afterAlt: 'Rigid duct opening after professional cleaning showing complete sanitization',
+    beforeImage: '/images/before-after/rigid-opening-before.jpeg',
+    afterImage: '/images/before-after/rigid-opening-after.jpeg',
     caption: 'Rigid Duct Opening - Complete sanitization'
   }
 ];
@@ -65,10 +49,6 @@ const BeforeAfterGallery = () => {
               <BeforeAfterSlider
                 beforeImage={item.beforeImage}
                 afterImage={item.afterImage}
-                beforeImageFallback={item.beforeImageFallback}
-                afterImageFallback={item.afterImageFallback}
-                beforeAlt={item.beforeAlt}
-                afterAlt={item.afterAlt}
                 beforeLabel="Before"
                 afterLabel="After"
                 caption={item.caption}
