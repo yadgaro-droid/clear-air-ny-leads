@@ -27,24 +27,24 @@ async function alignRigidImages() {
   const targetWidth = 1520;   // Use nearly full width available
   const targetHeight = 1140;  // 4:3 ratio height (1520 / 1.333)
 
-  // Based on visual analysis:
-  // BEFORE: Duct opening in middle area, lots of debris at bottom
-  // AFTER: Duct opening appears slightly HIGHER in frame (cleaner bottom area)
-  // Need to offset: BEFORE should start lower OR AFTER should start higher
+  // CRITICAL: Main transformation is at the BOTTOM - debris vs clean
+  // User feedback: Focus on bottom area where dirt accumulates
+  // Source image: 1530x2040, Crop: 1520x1140
+  // Available vertical space: 900px (2040 - 1140)
+  // To show BOTTOM: start crop near the bottom
 
-  // BEFORE image - has debris at bottom, duct appears in middle area
+  // BEFORE image - show bottom area with heavy debris
   const beforeCrop = {
     left: 5,  // Minimal left margin
-    top: 50,  // Start at 50px to capture top area
+    top: 850,  // Start LOW to capture bottom debris area
     width: targetWidth,
     height: targetHeight
   };
 
-  // AFTER image - needs to shift DOWN to align with BEFORE
-  // The outer ring in AFTER is currently too HIGH, so increase top offset
+  // AFTER image - maintain 50px offset for alignment
   const afterCrop = {
     left: 5,  // Same horizontal position
-    top: 100,  // Start 50px LOWER than BEFORE (was 20, now 100) to align outer ring
+    top: 900,  // 50px LOWER than BEFORE to maintain alignment
     width: targetWidth,
     height: targetHeight
   };
