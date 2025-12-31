@@ -21,10 +21,10 @@ async function alignVentImages() {
   console.log('Before image:', beforeMeta.width, 'x', beforeMeta.height);
   console.log('After image:', afterMeta.width, 'x', afterMeta.height);
 
-  // Target dimensions - NEAR-FULL IMAGE to show maximum detail
-  // User wants even MORE context - show almost the entire original photo
-  const targetWidth = 2040;   // Nearly full width (2048 - 8px margins)
-  const targetHeight = 1700;  // Nearly full height while maintaining good ratio
+  // Target dimensions - 4:3 ASPECT RATIO for uniform gallery
+  // Professional standard ratio for consistent appearance across all gallery images
+  const targetWidth = 2000;   // 4:3 ratio width
+  const targetHeight = 1500;  // 4:3 ratio height (2000 / 1.333)
 
   // MAINTAIN ALIGNMENT: Keep the 150px offset that worked perfectly
   // Show almost the complete photo with minimal cropping

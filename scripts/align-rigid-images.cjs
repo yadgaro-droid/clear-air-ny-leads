@@ -21,10 +21,11 @@ async function alignRigidImages() {
   console.log('Before image:', beforeMeta.width, 'x', beforeMeta.height);
   console.log('After image:', afterMeta.width, 'x', afterMeta.height);
 
-  // Target dimensions - NEAR-FULL IMAGE to show maximum detail
-  // Images are portrait (1530 x 2040), so adjust accordingly
-  const targetWidth = 1520;   // Nearly full width (1530 - 10px margins)
-  const targetHeight = 1850;  // Tall enough to show duct + surrounding debris
+  // Target dimensions - 4:3 ASPECT RATIO for uniform gallery
+  // Professional standard ratio for consistent appearance across all gallery images
+  // Source images are portrait (1530 x 2040), will crop to landscape 4:3
+  const targetWidth = 1520;   // Use nearly full width available
+  const targetHeight = 1140;  // 4:3 ratio height (1520 / 1.333)
 
   // Based on visual analysis:
   // BEFORE: Duct opening in middle area, lots of debris at bottom

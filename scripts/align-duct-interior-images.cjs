@@ -21,10 +21,11 @@ async function alignDuctInteriorImages() {
   console.log('Before image:', beforeMeta.width, 'x', beforeMeta.height);
   console.log('After image:', afterMeta.width, 'x', afterMeta.height);
 
-  // Target dimensions - square images (2048x2048), crop to near-full size
+  // Target dimensions - 4:3 ASPECT RATIO for uniform gallery
+  // Professional standard ratio for consistent appearance across all gallery images
   // Focus on horizontal duct ridges/features for alignment
-  const targetWidth = 2040;   // Nearly full width (2048 - 8px margins)
-  const targetHeight = 1700;  // Tall crop to show duct interior detail
+  const targetWidth = 2000;   // 4:3 ratio width
+  const targetHeight = 1500;  // 4:3 ratio height (2000 / 1.333)
 
   // BEFORE image - start with standard crop
   const beforeCrop = {
@@ -34,10 +35,11 @@ async function alignDuctInteriorImages() {
     height: targetHeight
   };
 
-  // AFTER image - start with same position, adjust if needed
+  // AFTER image - shift DOWN to align horizontal ridges with BEFORE
+  // The horizontal duct ridges in AFTER are currently too HIGH
   const afterCrop = {
     left: 4,
-    top: 20,  // Start at same position (adjust after visual inspection)
+    top: 80,  // Shift 60px DOWN from BEFORE to align horizontal ridges
     width: targetWidth,
     height: targetHeight
   };
