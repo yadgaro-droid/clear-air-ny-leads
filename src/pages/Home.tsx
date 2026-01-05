@@ -125,8 +125,12 @@ const Home = () => {
                   from <span ref={heroPriceCount.ref}>{heroPriceCount.value}</span> per Duct
                 </h2>
 
-                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                  Professional service • Same-day available<br />
+                {/* Professional Urgency Line */}
+                <p className="text-xl text-gray-600 font-medium mb-4 leading-relaxed">
+                  Same-Day Service Available • 30-Minute Callback Guarantee
+                </p>
+
+                <p className="text-base text-gray-500 mb-6">
                   Serving all NYC boroughs
                 </p>
 
@@ -143,7 +147,7 @@ const Home = () => {
                     href="#contact-form"
                     className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-xl font-semibold py-4 px-8 rounded-xl shadow-[0_10px_30px_rgba(37,99,235,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(37,99,235,0.4)]"
                   >
-                    Get Free Quote
+                    Book Same-Day Service
                   </a>
 
                   <div className="flex items-center gap-2">
@@ -518,6 +522,43 @@ const Home = () => {
                     </p>
                   </div>
 
+                  {/* Service Date Preference - Professional Urgency */}
+                  <div>
+                    <label className="block text-sm font-medium mb-3">
+                      Preferred Service Date:
+                    </label>
+                    <div className="space-y-3">
+                      <label className="flex items-center text-base text-gray-700 cursor-pointer py-2">
+                        <input
+                          type="radio"
+                          name="service_date"
+                          value="today"
+                          defaultChecked
+                          className="w-5 h-5 mr-3 text-blue-600 focus:ring-2 focus:ring-blue-500"
+                        />
+                        Today (Same-Day Available)
+                      </label>
+                      <label className="flex items-center text-base text-gray-700 cursor-pointer py-2">
+                        <input
+                          type="radio"
+                          name="service_date"
+                          value="tomorrow"
+                          className="w-5 h-5 mr-3 text-blue-600 focus:ring-2 focus:ring-blue-500"
+                        />
+                        Tomorrow
+                      </label>
+                      <label className="flex items-center text-base text-gray-700 cursor-pointer py-2">
+                        <input
+                          type="radio"
+                          name="service_date"
+                          value="week"
+                          className="w-5 h-5 mr-3 text-blue-600 focus:ring-2 focus:ring-blue-500"
+                        />
+                        This Week
+                      </label>
+                    </div>
+                  </div>
+
                   <div>
                     <label htmlFor="service" className="block text-sm font-medium mb-2">
                       Service Needed *
@@ -539,7 +580,7 @@ const Home = () => {
                   </div>
 
                   <Button type="submit" size="lg" className="w-full text-lg h-14" disabled={isSubmitting}>
-                    {isSubmitting ? 'Sending...' : 'Get Free Quote'}
+                    {isSubmitting ? 'Sending...' : 'Book Same-Day Service'}
                   </Button>
 
                   <p className="text-sm text-muted-foreground text-center">
@@ -560,6 +601,11 @@ const Home = () => {
               <img src={logo} alt="CleanVent NYC" className="h-10 w-10" />
               <span className="font-bold text-xl">CleanVent NYC</span>
             </div>
+
+            {/* Footer Urgency Line */}
+            <p className="text-lg text-gray-600 font-medium">
+              Call now for same-day availability in New York City
+            </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-muted-foreground">
               <a href="tel:+16465963677" className="flex items-center hover:text-primary transition-colors">
