@@ -130,9 +130,18 @@ const Home = () => {
                   Same-Day Service Available • 30-Minute Callback Guarantee
                 </p>
 
-                <p className="text-base text-gray-500 mb-6">
-                  Serving all NYC boroughs
-                </p>
+                {/* Credibility Badges */}
+                <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-6 text-sm">
+                  <span className="flex items-center gap-1.5 bg-blue-50 text-blue-700 font-semibold py-2 px-3 rounded-lg">
+                    ✓ 7+ Years Experience
+                  </span>
+                  <span className="flex items-center gap-1.5 bg-green-50 text-green-700 font-semibold py-2 px-3 rounded-lg">
+                    ✓ Licensed & Insured
+                  </span>
+                  <span className="flex items-center gap-1.5 bg-purple-50 text-purple-700 font-semibold py-2 px-3 rounded-lg">
+                    ✓ EPA-Certified
+                  </span>
+                </div>
 
                 {/* Trust Badge */}
                 <div className="mb-6">
@@ -141,24 +150,26 @@ const Home = () => {
                   </span>
                 </div>
 
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+                {/* Primary CTA Button */}
+                <div className="space-y-3">
                   <a
                     href="#contact-form"
                     className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-xl font-semibold py-4 px-8 rounded-xl shadow-[0_10px_30px_rgba(37,99,235,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(37,99,235,0.4)]"
                   >
-                    Book Same-Day Service
+                    Get Free Quote
                   </a>
 
-                  <div className="flex items-center gap-2">
-                    <span className="text-xl">📞</span>
-                    <a
-                      href="tel:+16465963677"
-                      className="text-xl font-bold text-gray-800 hover:text-blue-600 transition-colors"
-                    >
-                      (646) 596-3677
+                  {/* Secondary Urgency CTA */}
+                  <p className="text-base text-gray-600">
+                    Need it today?{" "}
+                    <a href="#contact-form" className="text-blue-600 font-semibold hover:underline">
+                      Book Same-Day Service
                     </a>
-                  </div>
+                    {" "}or{" "}
+                    <a href="tel:+16465963677" className="text-blue-600 font-bold hover:underline">
+                      📞 (646) 596-3677
+                    </a>
+                  </p>
                 </div>
               </div>
 
@@ -580,7 +591,7 @@ const Home = () => {
                   </div>
 
                   <Button type="submit" size="lg" className="w-full text-lg h-14" disabled={isSubmitting}>
-                    {isSubmitting ? 'Sending...' : 'Book Same-Day Service'}
+                    {isSubmitting ? 'Sending...' : 'Get Free Quote'}
                   </Button>
 
                   <p className="text-sm text-muted-foreground text-center">
