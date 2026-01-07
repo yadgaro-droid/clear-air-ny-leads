@@ -103,40 +103,40 @@ const Home = () => {
       <main>
         {/* Hero Section - Professional Design with Auto-Playing Before/After */}
         <section
-          className="relative min-h-[90vh] flex items-center justify-center pt-8 pb-20 px-5"
+          className="relative md:min-h-[90vh] flex items-center justify-center pt-8 pb-12 md:pb-20 px-5"
           style={{
             backgroundImage: `linear-gradient(rgba(248,250,252,0.9), rgba(248,250,252,0.9)), url(${heroImage})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
         >
-          <div className="max-w-6xl w-full bg-white/95 py-12 px-8 md:px-12 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.1)]">
+          <div className="max-w-6xl w-full bg-white/95 py-6 md:py-12 px-6 md:px-12 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.1)]">
 
-            <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
 
               {/* Left Side - Text & CTA */}
               <div className="text-center md:text-left">
                 {/* Main Headline */}
-                <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4 leading-tight">
+                <h1 className="text-3xl md:text-5xl font-bold text-gray-800 mb-3 md:mb-4 leading-tight">
                   NYC Air Duct Cleaning
                 </h1>
 
-                <h2 className="text-3xl md:text-4xl font-semibold text-blue-600 mb-4">
+                <h2 className="text-2xl md:text-4xl font-semibold text-blue-600 mb-3 md:mb-4">
                   from <span ref={heroPriceCount.ref}>{heroPriceCount.value}</span> per Duct
                 </h2>
 
                 {/* Professional Urgency Lines */}
-                <div className="mb-4 space-y-1">
-                  <p className="text-xl text-gray-600 font-medium leading-relaxed">
+                <div className="mb-3 md:mb-4 space-y-1">
+                  <p className="text-lg md:text-xl text-gray-600 font-medium leading-relaxed">
                     Same-Day Service Available
                   </p>
-                  <p className="text-xl text-gray-600 font-medium leading-relaxed">
+                  <p className="text-lg md:text-xl text-gray-600 font-medium leading-relaxed">
                     30-Minute Callback
                   </p>
                 </div>
 
                 {/* Credibility Badges */}
-                <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-6 text-sm">
+                <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 md:gap-3 mb-4 md:mb-6 text-sm">
                   <span className="flex items-center gap-1.5 bg-blue-50 text-blue-700 font-semibold py-2 px-3 rounded-lg">
                     ✓ 7+ Years Experience
                   </span>
@@ -146,23 +146,23 @@ const Home = () => {
                 </div>
 
                 {/* Trust Badge */}
-                <div className="mb-6">
-                  <span className="inline-block bg-green-500 text-white text-base font-semibold py-2 px-5 rounded-full">
+                <div className="mb-4 md:mb-6">
+                  <span className="inline-block bg-green-500 text-white text-sm md:text-base font-semibold py-2 px-4 md:px-5 rounded-full">
                     Trusted by <span ref={heroFamiliesCount.ref}>{heroFamiliesCount.value}</span> NYC Families
                   </span>
                 </div>
 
                 {/* Primary CTA Button */}
-                <div className="space-y-3">
+                <div className="space-y-2 md:space-y-3">
                   <a
                     href="#contact-form"
-                    className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-xl font-semibold py-4 px-8 rounded-xl shadow-[0_10px_30px_rgba(37,99,235,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(37,99,235,0.4)]"
+                    className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-lg md:text-xl font-semibold py-3 md:py-4 px-6 md:px-8 rounded-xl shadow-[0_10px_30px_rgba(37,99,235,0.3)] transition-all hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(37,99,235,0.4)]"
                   >
                     Get Free Quote
                   </a>
 
                   {/* Secondary Urgency CTA */}
-                  <p className="text-base text-gray-600">
+                  <p className="text-sm md:text-base text-gray-600">
                     Need it today?{" "}
                     <a href="#contact-form" className="text-blue-600 font-semibold hover:underline">
                       Book Same-Day Service
