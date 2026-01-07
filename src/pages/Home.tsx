@@ -131,7 +131,7 @@ const Home = () => {
                     Same-Day Service Available
                   </p>
                   <p className="text-xl text-gray-600 font-medium leading-relaxed">
-                    30-Minute Callback Guarantee
+                    30-Minute Callback
                   </p>
                 </div>
 
@@ -175,19 +175,18 @@ const Home = () => {
                 </div>
               </div>
 
-              {/* Right Side - Auto-Playing Before/After Slider */}
+              {/* Right Side - Before/After Slider */}
               <div>
                 <div className="mb-3 text-center">
                   <p className="text-sm font-semibold text-blue-600 uppercase tracking-wide">
-                    Watch The Transformation
+                    See The Difference
                   </p>
                 </div>
                 <BeforeAfterSlider
                   beforeImage="/images/before-after/flexible-duct-before.jpeg"
                   afterImage="/images/before-after/flexible-duct-after.jpeg"
                   caption="Years of dust removed in minutes"
-                  autoPlay={true}
-                  autoPlayDuration={3000}
+                  autoPlay={false}
                 />
               </div>
 
