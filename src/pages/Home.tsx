@@ -103,7 +103,7 @@ const Home = () => {
       <main>
         {/* Hero Section - Professional Design with Auto-Playing Before/After */}
         <section
-          className="relative min-h-[90vh] flex items-center justify-center py-20 px-5"
+          className="relative min-h-[90vh] flex items-center justify-center pt-8 pb-20 px-5"
           style={{
             backgroundImage: `linear-gradient(rgba(248,250,252,0.9), rgba(248,250,252,0.9)), url(${heroImage})`,
             backgroundSize: 'cover',
@@ -446,7 +446,7 @@ const Home = () => {
             <div className="text-center mb-12">
               <h2 className="text-foreground mb-4">Get Your Free Quote</h2>
               <p className="text-xl text-muted-foreground">
-                Fill out the form below and we'll respond within 2 hours. Or call us now at{" "}
+                Fill out the form below and we'll respond within 30 minutes. Or call us now at{" "}
                 <a href="tel:+16465963677" className="text-primary font-semibold hover:underline">
                   (646) 596-3677
                 </a>
@@ -596,7 +596,7 @@ const Home = () => {
                   </Button>
 
                   <p className="text-sm text-muted-foreground text-center">
-                    We'll contact you within 2 hours. Takes less than 60 seconds to complete.
+                    We'll contact you within 30 minutes. Takes less than 60 seconds to complete.
                   </p>
                 </form>
               </CardContent>
