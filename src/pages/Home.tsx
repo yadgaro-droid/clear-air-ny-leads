@@ -125,10 +125,15 @@ const Home = () => {
                   from <span ref={heroPriceCount.ref}>{heroPriceCount.value}</span> per Duct
                 </h2>
 
-                {/* Professional Urgency Line */}
-                <p className="text-xl text-gray-600 font-medium mb-4 leading-relaxed">
-                  Same-Day Service Available • 30-Minute Callback Guarantee
-                </p>
+                {/* Professional Urgency Lines */}
+                <div className="mb-4 space-y-1">
+                  <p className="text-xl text-gray-600 font-medium leading-relaxed">
+                    Same-Day Service Available
+                  </p>
+                  <p className="text-xl text-gray-600 font-medium leading-relaxed">
+                    30-Minute Callback Guarantee
+                  </p>
+                </div>
 
                 {/* Credibility Badges */}
                 <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-6 text-sm">
@@ -137,9 +142,6 @@ const Home = () => {
                   </span>
                   <span className="flex items-center gap-1.5 bg-green-50 text-green-700 font-semibold py-2 px-3 rounded-lg">
                     ✓ Licensed & Insured
-                  </span>
-                  <span className="flex items-center gap-1.5 bg-purple-50 text-purple-700 font-semibold py-2 px-3 rounded-lg">
-                    ✓ EPA-Certified
                   </span>
                 </div>
 
