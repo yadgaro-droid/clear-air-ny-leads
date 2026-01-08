@@ -118,7 +118,7 @@ const Home = () => {
               <div className="text-center md:text-left">
                 {/* Main Headline */}
                 <h1 className="text-3xl md:text-5xl font-bold text-gray-800 mb-3 md:mb-4 leading-tight">
-                  NYC Air Duct Cleaning
+                  NYC Air Duct and HVAC Cleaning
                 </h1>
 
                 <h2 className="text-2xl md:text-4xl font-semibold text-blue-600 mb-3 md:mb-4">
@@ -163,7 +163,7 @@ const Home = () => {
 
                   {/* Secondary Urgency CTA */}
                   <p className="text-sm md:text-base text-gray-600">
-                    Need it today?{" "}
+                    Needed today? We're near you -{" "}
                     <a href="#contact-form" className="text-blue-600 font-semibold hover:underline">
                       Book Same-Day Service
                     </a>
