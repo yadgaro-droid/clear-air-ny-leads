@@ -187,6 +187,7 @@ const Home = () => {
                   afterImage="/images/before-after/flexible-duct-after.jpeg"
                   caption="Years of dust removed in minutes"
                   autoPlay={false}
+                  priority={true}
                 />
               </div>
 

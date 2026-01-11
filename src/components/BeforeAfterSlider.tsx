@@ -8,6 +8,7 @@ interface BeforeAfterSliderProps {
   afterObjectPosition?: string;
   autoPlay?: boolean;
   autoPlayDuration?: number;
+  priority?: boolean; // For LCP optimization (fetchpriority="high")
 }
 
 const BeforeAfterSlider = ({
@@ -17,8 +18,11 @@ const BeforeAfterSlider = ({
   beforeObjectPosition = 'center',
   afterObjectPosition = 'center',
   autoPlay = false,
-  autoPlayDuration = 3000
+  autoPlayDuration = 3000,
+  priority = false
 }: BeforeAfterSliderProps) => {
+  // Helper to convert .jpeg path to .webp path
+  const getWebPPath = (path: string) => path.replace('.jpeg', '.webp');
   const [sliderPosition, setSliderPosition] = useState(autoPlay ? 100 : 50);
   const [isDragging, setIsDragging] = useState(false);
   const [hasAutoPlayed, setHasAutoPlayed] = useState(false);
@@ -98,26 +102,34 @@ const BeforeAfterSlider = ({
         onTouchStart={handleMouseDown}
       >
         {/* After Image (Background) */}
-        <img
-          src={afterImage}
-          alt="After"
-          className="w-full h-auto object-cover"
-          style={{ objectPosition: afterObjectPosition }}
-          draggable="false"
-        />
+        <picture>
+          <source srcSet={getWebPPath(afterImage)} type="image/webp" />
+          <img
+            src={afterImage}
+            alt="After"
+            className="w-full h-auto object-cover"
+            style={{ objectPosition: afterObjectPosition }}
+            draggable="false"
+            fetchPriority={priority ? 'high' : 'auto'}
+          />
+        </picture>
 
         {/* Before Image (Clipped) */}
         <div
           className="absolute inset-0 overflow-hidden"
           style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
         >
-          <img
-            src={beforeImage}
-            alt="Before"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: beforeObjectPosition }}
-            draggable="false"
-          />
+          <picture>
+            <source srcSet={getWebPPath(beforeImage)} type="image/webp" />
+            <img
+              src={beforeImage}
+              alt="Before"
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ objectPosition: beforeObjectPosition }}
+              draggable="false"
+              fetchPriority={priority ? 'high' : 'auto'}
+            />
+          </picture>
         </div>
 
         {/* Slider Line */}
