@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Wind, Flame, Droplets, TestTube, Sparkles, Building, Brush } from "lucide-react";
-import servicesHero from "@/assets/services-hero.jpg";
+import servicesHero from "@/assets/services-hero.webp";
 
 const Services = () => {
   const services = [

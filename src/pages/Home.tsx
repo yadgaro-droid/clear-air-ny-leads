@@ -2,7 +2,7 @@ import { useState, lazy, Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Wind, Shield, Clock, Star, Phone, ShieldCheck, Award, BadgeCheck } from "lucide-react";
-import heroImage from "@/assets/hero-duct-cleaning.jpg";
+import heroImage from "@/assets/hero-duct-cleaning.webp";
 import logo from "@/assets/logo.png";
 import { useCountUp } from "@/hooks/useCountUp";
 import { useEmailJS } from "@/hooks/useEmailJS";

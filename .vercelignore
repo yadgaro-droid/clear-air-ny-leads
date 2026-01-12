@@ -1,0 +1,15 @@
+# Exclude JPEG backup files
+public/images/before-after/*.jpeg.backup*
+public/images/before-after/*-backup.jpeg
+public/images/before-after/*-backup-*.jpeg
+public/images/before-after/*-ORIGINAL-BACKUP.jpeg
+
+# Exclude Python scripts
+*.py
+*.pyc
+
+# Exclude unnecessary files
+nul
+.env.local
+.env.development
+*.log
