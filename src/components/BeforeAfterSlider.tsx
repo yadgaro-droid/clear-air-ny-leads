@@ -27,18 +27,38 @@ const BeforeAfterSlider = ({
   const [isDragging, setIsDragging] = useState(false);
   const [hasAutoPlayed, setHasAutoPlayed] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const cachedRectRef = useRef<DOMRect | null>(null);
+  const rafIdRef = useRef<number | null>(null);
+
+  const cacheContainerRect = () => {
+    if (containerRef.current) {
+      cachedRectRef.current = containerRef.current.getBoundingClientRect();
+    }
+  };
 
   const handleMove = (clientX: number) => {
-    if (!containerRef.current) return;
+    if (!cachedRectRef.current) return;
 
-    const rect = containerRef.current.getBoundingClientRect();
+    // Cancel previous RAF if exists
+    if (rafIdRef.current !== null) {
+      cancelAnimationFrame(rafIdRef.current);
+    }
+
+    const rect = cachedRectRef.current;
     const x = clientX - rect.left;
     const percentage = (x / rect.width) * 100;
 
-    setSliderPosition(Math.max(0, Math.min(100, percentage)));
+    // Batch DOM write with RAF
+    rafIdRef.current = requestAnimationFrame(() => {
+      setSliderPosition(Math.max(0, Math.min(100, percentage)));
+    });
   };
 
-  const handleMouseDown = () => setIsDragging(true);
+  const handleMouseDown = () => {
+    cacheContainerRect();
+    setIsDragging(true);
+  };
+
   const handleMouseUp = () => setIsDragging(false);
 
   const handleMouseMove = (e: MouseEvent) => {
@@ -62,6 +82,11 @@ const BeforeAfterSlider = ({
       window.removeEventListener('mouseup', handleMouseUp);
       window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('touchend', handleMouseUp);
+
+      // Clean up RAF
+      if (rafIdRef.current !== null) {
+        cancelAnimationFrame(rafIdRef.current);
+      }
     };
   }, [isDragging]);
 
@@ -99,7 +124,10 @@ const BeforeAfterSlider = ({
         className="relative rounded-lg overflow-hidden shadow-lg select-none"
         style={{ cursor: 'ew-resize' }}
         onMouseDown={handleMouseDown}
-        onTouchStart={handleMouseDown}
+        onTouchStart={() => {
+          cacheContainerRect();
+          setIsDragging(true);
+        }}
       >
         {/* After Image (Background) */}
         <picture>

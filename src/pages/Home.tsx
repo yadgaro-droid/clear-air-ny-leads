@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Wind, Shield, Clock, Star, Phone, ShieldCheck, Award, BadgeCheck } from "lucide-react";
@@ -7,8 +7,9 @@ import logo from "@/assets/logo.png";
 import { useCountUp } from "@/hooks/useCountUp";
 import { useEmailJS } from "@/hooks/useEmailJS";
 import { getConfig, isStaging } from "@/config/environment";
-import BeforeAfterGallery from "@/components/BeforeAfterGallery";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+
+const BeforeAfterGallery = lazy(() => import("@/components/BeforeAfterGallery"));
 
 const Home = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -332,7 +333,15 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <BeforeAfterGallery />
+      <Suspense fallback={
+        <div className="py-20 bg-muted">
+          <div className="container mx-auto px-4 text-center">
+            <p className="text-muted-foreground">Loading gallery...</p>
+          </div>
+        </div>
+      }>
+        <BeforeAfterGallery />
+      </Suspense>
 
 
       {/* Testimonials Section */}
