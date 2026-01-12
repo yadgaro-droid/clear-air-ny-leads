@@ -28,7 +28,9 @@ const galleryItems: GalleryItem[] = [
     id: 'duct-interior',
     beforeImage: '/images/before-after/duct-interior-before.jpeg',
     afterImage: '/images/before-after/duct-interior-after.jpeg',
-    caption: 'Duct Interior'
+    caption: 'Duct Interior',
+    beforeObjectPosition: '50% 35%',
+    afterObjectPosition: '50% 55%'
   }
 ];
 
