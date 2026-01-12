@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Wind, Flame, Droplets, TestTube, Sparkles, Building, Brush } from "lucide-react";
 import servicesHero from "@/assets/services-hero.webp";
+import servicesHeroMobile from "@/assets/services-hero-mobile.webp";
 
 const Services = () => {
   const services = [
@@ -99,11 +100,14 @@ const Services = () => {
           
           <div className="max-w-4xl mx-auto">
             <div className="aspect-video rounded-2xl overflow-hidden shadow-elevated">
-              <img 
-                src={servicesHero} 
-                alt="Professional HVAC technician providing duct cleaning services in New York" 
-                className="w-full h-full object-cover"
-              />
+              <picture>
+                <source media="(max-width: 768px)" srcSet={servicesHeroMobile} />
+                <img
+                  src={servicesHero}
+                  alt="Professional HVAC technician providing duct cleaning services in New York"
+                  className="w-full h-full object-cover"
+                />
+              </picture>
             </div>
           </div>
         </div>

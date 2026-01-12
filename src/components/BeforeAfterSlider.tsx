@@ -23,6 +23,8 @@ const BeforeAfterSlider = ({
 }: BeforeAfterSliderProps) => {
   // Helper to convert .jpeg path to .webp path
   const getWebPPath = (path: string) => path.replace('.jpeg', '.webp');
+  // Helper to get mobile version of image
+  const getMobilePath = (path: string) => path.replace('.webp', '-mobile.webp');
   const [sliderPosition, setSliderPosition] = useState(autoPlay ? 100 : 50);
   const [isDragging, setIsDragging] = useState(false);
   const [hasAutoPlayed, setHasAutoPlayed] = useState(false);
@@ -131,7 +133,15 @@ const BeforeAfterSlider = ({
       >
         {/* After Image (Background) */}
         <picture>
-          <source srcSet={getWebPPath(afterImage)} type="image/webp" />
+          <source
+            media="(max-width: 768px)"
+            srcSet={getMobilePath(getWebPPath(afterImage))}
+            type="image/webp"
+          />
+          <source
+            srcSet={getWebPPath(afterImage)}
+            type="image/webp"
+          />
           <img
             src={afterImage}
             alt="After"
@@ -148,7 +158,15 @@ const BeforeAfterSlider = ({
           style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
         >
           <picture>
-            <source srcSet={getWebPPath(beforeImage)} type="image/webp" />
+            <source
+              media="(max-width: 768px)"
+              srcSet={getMobilePath(getWebPPath(beforeImage))}
+              type="image/webp"
+            />
+            <source
+              srcSet={getWebPPath(beforeImage)}
+              type="image/webp"
+            />
             <img
               src={beforeImage}
               alt="Before"
