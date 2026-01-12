@@ -5,6 +5,7 @@ import { CheckCircle, Wind, Shield, Clock, Star, Phone, ShieldCheck, Award, Badg
 import heroImage from "@/assets/hero-duct-cleaning.jpg";
 import logo from "@/assets/logo.png";
 import { useCountUp } from "@/hooks/useCountUp";
+import { useEmailJS } from "@/hooks/useEmailJS";
 import { getConfig, isStaging } from "@/config/environment";
 import BeforeAfterGallery from "@/components/BeforeAfterGallery";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
@@ -13,6 +14,7 @@ const Home = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [phone, setPhone] = useState("");
   const [phoneError, setPhoneError] = useState("");
+  const { loadEmailJS } = useEmailJS();
   const familiesCount = useCountUp({ end: 5000, duration: 2000, suffix: "+" });
   const ratingCount = useCountUp({ end: 4.7, duration: 2000, decimals: 1 });
   const reviewsCount = useCountUp({ end: 200, duration: 2000, suffix: "+" });
@@ -458,7 +460,7 @@ const Home = () => {
               <CardContent className="p-8">
                 <form
                   className="space-y-6"
-                  onSubmit={(e) => {
+                  onSubmit={async (e) => {
                     e.preventDefault();
 
                     // Validate phone number before submission
@@ -470,29 +472,32 @@ const Home = () => {
 
                     setIsSubmitting(true);
 
-                    // Log environment for debugging
-                    const config = getConfig();
-                    console.log(`📧 Submitting form in ${config.environment.toUpperCase()} environment`);
-                    if (isStaging()) {
-                      console.log('⚠️ STAGING MODE: Email will be sent to test recipient');
-                      console.log('💡 TIP: Update EmailJS template to send staging emails to your test inbox');
-                    }
+                    try {
+                      // Load EmailJS on demand
+                      await loadEmailJS();
 
-                    // @ts-ignore - EmailJS is loaded via CDN
-                    emailjs.sendForm('service_0uzikxr', config.emailTemplateId, e.currentTarget)
-                      .then(() => {
-                        console.log('✅ Email sent successfully');
-                        // Redirect to thank you page (conversion tracking happens there)
-                        window.location.href = '/thank-you';
-                      })
-                      .catch((error: any) => {
-                        console.error('❌ EmailJS error:', error);
-                        const message = isStaging()
-                          ? 'Test form submission failed. Check console for details.'
-                          : 'Failed to send message. Please call us at (646) 596-3677';
-                        alert(message);
-                        setIsSubmitting(false);
-                      });
+                      // Log environment for debugging
+                      const config = getConfig();
+                      console.log(`📧 Submitting form in ${config.environment.toUpperCase()} environment`);
+                      if (isStaging()) {
+                        console.log('⚠️ STAGING MODE: Email will be sent to test recipient');
+                        console.log('💡 TIP: Update EmailJS template to send staging emails to your test inbox');
+                      }
+
+                      // @ts-ignore - EmailJS is loaded dynamically
+                      await window.emailjs.sendForm('service_0uzikxr', config.emailTemplateId, e.currentTarget);
+
+                      console.log('✅ Email sent successfully');
+                      // Redirect to thank you page (conversion tracking happens there)
+                      window.location.href = '/thank-you';
+                    } catch (error: any) {
+                      console.error('❌ EmailJS error:', error);
+                      const message = isStaging()
+                        ? 'Test form submission failed. Check console for details.'
+                        : 'Failed to send message. Please call us at (646) 596-3677';
+                      alert(message);
+                      setIsSubmitting(false);
+                    }
                   }}
                 >
 

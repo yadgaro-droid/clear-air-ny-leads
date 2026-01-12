@@ -49,23 +49,19 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Resource hints for external CDNs -->
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
     <title>CleanVent NYC - Air Duct, Dryer Vent & Chimney Cleaning Services</title>
     <meta name="description" content="Professional air duct, dryer vent, and chimney cleaning in NYC. 7+ years experience, licensed & insured. Call (646) 596-3677 for free estimate!" />
     <meta name="keywords" content="air duct cleaning NYC, chimney cleaning New York, dryer vent cleaning, HVAC cleaning Brooklyn Queens Manhattan" />
     <meta name="author" content="CleanVent NYC" />
     <link rel="canonical" href="https://cleanventnyc.com" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript">
-      (function(){
-        emailjs.init("0b8LuYZ3y4_Z4utia");
-      })();
-    </script>
+    <!-- Async load Google Fonts to eliminate render-blocking -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
 
     <meta property="og:title" content="CleanVent NYC - Air Duct, Dryer Vent & Chimney Cleaning" />
     <meta property="og:description" content="Professional air duct, dryer vent, and chimney cleaning in NYC. 7+ years experience. Free estimates!" />
