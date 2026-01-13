@@ -9,7 +9,7 @@ const fs = require('fs');
 async function generateResponsiveImages() {
   console.log('🖼️  Generating mobile-optimized responsive images...\n');
 
-  const mobileWidth = 800;
+  const mobileWidth = 665; // Optimized for actual display size (was 800px)
   const webpQuality = 85;
 
   // Hero images to optimize
