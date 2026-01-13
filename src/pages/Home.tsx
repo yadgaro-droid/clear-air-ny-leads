@@ -2,8 +2,6 @@ import { useState, lazy, Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Wind, Shield, Clock, Star, Phone, ShieldCheck, Award, BadgeCheck } from "lucide-react";
-import heroImage from "@/assets/hero-duct-cleaning.webp";
-import heroImageMobile from "@/assets/hero-duct-cleaning-mobile.webp";
 import logo from "@/assets/logo.png";
 import { useCountUp } from "@/hooks/useCountUp";
 import { useEmailJS } from "@/hooks/useEmailJS";
@@ -106,19 +104,7 @@ const Home = () => {
 
       <main>
         {/* Hero Section - Professional Design with Auto-Playing Before/After */}
-        <section className="relative md:min-h-[90vh] flex items-center justify-center pt-8 pb-12 md:pb-20 px-5">
-          {/* Responsive Background Image */}
-          <picture>
-            <source media="(max-width: 768px)" srcSet={heroImageMobile} />
-            <img
-              src={heroImage}
-              alt="Air duct cleaning background"
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{ zIndex: -1 }}
-            />
-          </picture>
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-slate-50/90" style={{ zIndex: 0 }}></div>
+        <section className="relative md:min-h-[90vh] flex items-center justify-center pt-8 pb-12 md:pb-20 px-5 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
           <div className="relative z-10 max-w-6xl w-full bg-white/95 py-6 md:py-12 px-6 md:px-12 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.1)]">
 
             <div className="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
