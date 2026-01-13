@@ -183,6 +183,8 @@ const Home = () => {
                   caption="Years of dust removed in minutes"
                   autoPlay={false}
                   priority={true}
+                  width={665}
+                  height={809}
                 />
               </div>
 

@@ -7,6 +7,8 @@ interface GalleryItem {
   caption: string;
   beforeObjectPosition?: string;
   afterObjectPosition?: string;
+  width: number;
+  height: number;
 }
 
 const galleryItems: GalleryItem[] = [
@@ -16,13 +18,17 @@ const galleryItems: GalleryItem[] = [
     afterImage: '/images/before-after/vent-opening-after.jpeg',
     caption: 'Vent Opening',
     beforeObjectPosition: 'center',
-    afterObjectPosition: 'center'
+    afterObjectPosition: 'center',
+    width: 665,
+    height: 499
   },
   {
     id: 'rigid-opening',
     beforeImage: '/images/before-after/rigid-opening-before.jpeg',
     afterImage: '/images/before-after/rigid-opening-after.jpeg',
-    caption: 'Rigid Duct Opening'
+    caption: 'Rigid Duct Opening',
+    width: 665,
+    height: 499
   },
   {
     id: 'duct-interior',
@@ -30,7 +36,9 @@ const galleryItems: GalleryItem[] = [
     afterImage: '/images/before-after/duct-interior-after.jpeg',
     caption: 'Duct Interior',
     beforeObjectPosition: '50% 35%',
-    afterObjectPosition: '50% 55%'
+    afterObjectPosition: '50% 55%',
+    width: 665,
+    height: 499
   }
 ];
 
@@ -54,6 +62,8 @@ const BeforeAfterGallery = () => {
                 caption={item.caption}
                 beforeObjectPosition={item.beforeObjectPosition}
                 afterObjectPosition={item.afterObjectPosition}
+                width={item.width}
+                height={item.height}
               />
             </div>
           ))}

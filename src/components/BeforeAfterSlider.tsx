@@ -9,6 +9,8 @@ interface BeforeAfterSliderProps {
   autoPlay?: boolean;
   autoPlayDuration?: number;
   priority?: boolean; // For LCP optimization (fetchpriority="high")
+  width?: number; // Explicit width for LCP optimization
+  height?: number; // Explicit height for LCP optimization
 }
 
 const BeforeAfterSlider = ({
@@ -19,7 +21,9 @@ const BeforeAfterSlider = ({
   afterObjectPosition = 'center',
   autoPlay = false,
   autoPlayDuration = 3000,
-  priority = false
+  priority = false,
+  width,
+  height
 }: BeforeAfterSliderProps) => {
   // Helper to convert .jpeg path to .webp path
   const getWebPPath = (path: string) => path.replace('.jpeg', '.webp');
@@ -149,6 +153,8 @@ const BeforeAfterSlider = ({
             style={{ objectPosition: afterObjectPosition }}
             draggable="false"
             fetchPriority={priority ? 'high' : 'auto'}
+            width={width}
+            height={height}
           />
         </picture>
 
@@ -174,6 +180,8 @@ const BeforeAfterSlider = ({
               style={{ objectPosition: beforeObjectPosition }}
               draggable="false"
               fetchPriority={priority ? 'high' : 'auto'}
+              width={width}
+              height={height}
             />
           </picture>
         </div>
