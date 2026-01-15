@@ -90,7 +90,7 @@ const Home = () => {
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border md:hidden">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <img src={logo} alt="CleanVent NYC" className="h-8 w-8" />
+            <img src={logo} alt="CleanVent NYC" className="h-8" width="64" height="60" />
             <span className="font-bold text-base">CleanVent NYC</span>
           </div>
           <Button size="sm" asChild className="h-10">
@@ -619,7 +619,7 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <div className="flex items-center justify-center space-x-2">
-              <img src={logo} alt="CleanVent NYC" className="h-10 w-10" />
+              <img src={logo} alt="CleanVent NYC" className="h-10" width="64" height="60" />
               <span className="font-bold text-xl">CleanVent NYC</span>
             </div>
 

@@ -12,7 +12,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <img src={logo} alt="CleanVent Logo" className="h-10 w-10" />
+              <img src={logo} alt="CleanVent Logo" className="h-10" width="64" height="60" />
               <span className="font-bold text-lg">CleanVent</span>
             </div>
             <p className="text-sm text-muted-foreground mb-4">
