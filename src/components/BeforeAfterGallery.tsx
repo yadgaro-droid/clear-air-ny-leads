@@ -47,7 +47,7 @@ const BeforeAfterGallery = () => {
     <section className="py-20 bg-muted">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">More Real Results</h2>
+          <h2 className="text-3xl font-bold mb-4">More of Our Work</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Every duct tells a story - here's what else we clean
           </p>
