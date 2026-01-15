@@ -24,8 +24,10 @@ function criticalCSSPlugin() {
           preload: 'swap',
           noscriptFallback: true,
           inlineFonts: false,
-          pruneSource: false,
+          pruneSource: true, // Remove inlined CSS from external file
           compress: true,
+          minimumExternalSize: 5000, // Inline CSS smaller than 5KB
+          reduceInlineStyles: false, // Keep all critical CSS
           logLevel: 'info',
         });
 
