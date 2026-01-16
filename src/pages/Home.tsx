@@ -132,17 +132,17 @@ const Home = () => {
 
                 {/* Credibility Badges */}
                 <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 md:gap-3 mb-4 md:mb-6 text-sm">
-                  <span className="flex items-center gap-1.5 bg-blue-50 text-blue-700 font-semibold py-2 px-3 rounded-lg">
+                  <span className="flex items-center gap-1.5 bg-blue-50 text-blue-800 font-semibold py-2 px-3 rounded-lg">
                     ✓ 7+ Years Experience
                   </span>
-                  <span className="flex items-center gap-1.5 bg-green-50 text-green-700 font-semibold py-2 px-3 rounded-lg">
+                  <span className="flex items-center gap-1.5 bg-green-50 text-green-800 font-semibold py-2 px-3 rounded-lg">
                     ✓ Licensed & Insured
                   </span>
                 </div>
 
                 {/* Trust Badge */}
                 <div className="mb-4 md:mb-6">
-                  <span className="inline-block bg-green-600 text-white text-sm md:text-base font-semibold py-2 px-4 md:px-5 rounded-full">
+                  <span className="inline-block bg-green-700 text-white text-sm md:text-base font-semibold py-2 px-4 md:px-5 rounded-full">
                     Trusted by <span ref={heroFamiliesCount.ref}>{heroFamiliesCount.value}</span> NYC Families
                   </span>
                 </div>
