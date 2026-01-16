@@ -465,19 +465,27 @@ const Home = () => {
                   className="space-y-6"
                   onSubmit={async (e) => {
                     e.preventDefault();
+                    console.log('🚀 Form submission started');
+                    console.log('📱 Phone value:', phone);
+                    console.log('📝 Name value:', name);
+                    console.log('📋 Service value:', service);
 
                     // Validate phone number before submission
                     const error = validateNYCPhone(phone);
                     if (error) {
+                      console.error('❌ Phone validation failed:', error);
                       setPhoneError(error);
                       return;
                     }
 
+                    console.log('✅ Phone validation passed');
                     setIsSubmitting(true);
 
                     try {
+                      console.log('📦 Loading EmailJS...');
                       // Load EmailJS on demand
                       await loadEmailJS();
+                      console.log('✅ EmailJS loaded successfully');
 
                       // Log environment for debugging
                       const config = getConfig();
