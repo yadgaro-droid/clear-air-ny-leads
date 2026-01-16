@@ -60,42 +60,9 @@ export default defineConfig(({ mode }) => ({
   build: {
     rollupOptions: {
       output: {
-        manualChunks(id) {
-          // React core (highest priority - loaded first)
-          if (id.includes('react') || id.includes('react-dom')) {
-            if (id.includes('react-router')) return 'vendor-router';
-            return 'vendor-react';
-          }
-
-          // UI components (frequently reused)
-          if (id.includes('@radix-ui')) {
-            return 'vendor-radix';
-          }
-
-          // Icons (heavy library)
-          if (id.includes('lucide-react')) {
-            return 'vendor-icons';
-          }
-
-          // Form handling (only used on contact form)
-          if (id.includes('react-hook-form') || id.includes('zod') || id.includes('@hookform')) {
-            return 'vendor-forms';
-          }
-
-          // Query/state management
-          if (id.includes('@tanstack/react-query')) {
-            return 'vendor-query';
-          }
-
-          // Image comparison library (only on specific pages)
-          if (id.includes('react-compare-image') || id.includes('embla-carousel')) {
-            return 'vendor-media';
-          }
-
-          // All other node_modules
-          if (id.includes('node_modules')) {
-            return 'vendor-misc';
-          }
+        manualChunks: {
+          // Keep React together (don't split it)
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
         },
       },
     },
