@@ -462,6 +462,7 @@ const Home = () => {
             <Card className="border-2">
               <CardContent className="p-8">
                 <form
+                  id="contact-form"
                   className="space-y-6"
                   onSubmit={async (e) => {
                     e.preventDefault();
@@ -496,7 +497,7 @@ const Home = () => {
                       }
 
                       // @ts-ignore - EmailJS is loaded dynamically
-                      await window.emailjs.sendForm('service_0uzikxr', config.emailTemplateId, e.currentTarget);
+                      await window.emailjs.sendForm('service_0uzikxr', config.emailTemplateId, '#contact-form');
 
                       console.log('✅ Email sent successfully');
                       // Redirect to thank you page (conversion tracking happens there)
