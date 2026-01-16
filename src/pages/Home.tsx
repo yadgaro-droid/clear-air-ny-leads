@@ -497,7 +497,7 @@ const Home = () => {
                       }
 
                       // @ts-ignore - EmailJS is loaded dynamically
-                      await window.emailjs.sendForm('service_0uzikxr', config.emailTemplateId, '#contact-form');
+                      await window.emailjs.sendForm('service_0uzikxr', config.emailTemplateId, e.target);
 
                       console.log('✅ Email sent successfully');
                       // Redirect to thank you page (conversion tracking happens there)
