@@ -25,7 +25,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <img src={logo} alt="CleanVent Logo" className="h-10" width="64" height="60" />
+            <img src={logo} alt="CleanVent Logo" className="h-10 w-auto" width="64" height="60" />
             <div className="flex flex-col">
               <span className="font-bold text-lg leading-none">CleanVent</span>
               <span className="text-xs text-muted-foreground">Professional Air Care</span>

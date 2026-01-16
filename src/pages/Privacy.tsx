@@ -11,7 +11,7 @@ const Privacy = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <img src={logo} alt="CleanVent NYC" className="h-10" width="64" height="60" />
+              <img src={logo} alt="CleanVent NYC" className="h-10 w-auto" width="64" height="60" />
               <span className="font-bold text-xl">CleanVent NYC</span>
             </div>
             <Button variant="outline" asChild>
