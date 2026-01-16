@@ -1,0 +1,43 @@
+{
+  "ci": {
+    "collect": {
+      "url": ["https://cleanventnyc.com"],
+      "numberOfRuns": 3,
+      "settings": {
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638,
+          "cpuSlowdownMultiplier": 4,
+          "requestLatencyMs": 150,
+          "downloadThroughputKbps": 1638,
+          "uploadThroughputKbps": 675
+        },
+        "screenEmulation": {
+          "mobile": true,
+          "width": 360,
+          "height": 640,
+          "deviceScaleFactor": 2,
+          "disabled": false
+        }
+      }
+    },
+    "assert": {
+      "preset": "lighthouse:recommended",
+      "assertions": {
+        "categories:performance": ["error", {"minScore": 0.83}],
+        "categories:accessibility": ["warn", {"minScore": 0.95}],
+        "categories:best-practices": ["warn", {"minScore": 0.90}],
+        "categories:seo": ["warn", {"minScore": 0.95}],
+        "metrics:largest-contentful-paint": ["error", {"maxNumericValue": 3100}],
+        "metrics:first-contentful-paint": ["error", {"maxNumericValue": 2700}],
+        "metrics:total-blocking-time": ["error", {"maxNumericValue": 200}],
+        "metrics:cumulative-layout-shift": ["error", {"maxNumericValue": 0.01}],
+        "unused-javascript": ["warn", {"maxNumericValue": 300000}]
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}
